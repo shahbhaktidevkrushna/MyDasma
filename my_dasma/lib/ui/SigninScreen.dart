@@ -11,6 +11,8 @@ import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:my_dasma/providers/loginProvider.dart';
 import 'package:my_dasma/ui/WelcomePage.dart';
 import 'package:my_dasma/ui/forgotPasswordPage.dart';
+import 'package:my_dasma/ui/home_screen.dart';
+import 'package:my_dasma/ui/menu_page.dart';
 import 'package:my_dasma/ui/signupScreen.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonEditText.dart';
 import '../webservice.dart';
@@ -188,7 +190,13 @@ class _LoginPageState extends State<LoginPage> with Constant{
                         width: MediaQuery.of(context).size.width / 1.2,
                         child: ElevatedButton(
                           onPressed: () {
-                            loginValidationFor();
+                            //loginValidationFor();
+
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => HomeScreen()));
+
+                            showSnackBar(context, "clicked");
+
                             /*Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => EditProfilePage()));*/
                           },

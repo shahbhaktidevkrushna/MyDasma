@@ -11,8 +11,4 @@ class LoginProvider extends ChangeNotifier{
   }
 
 
-
-
-
-
 }

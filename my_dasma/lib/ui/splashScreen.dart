@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_dasma/ui/SigninScreen.dart';
+import 'package:my_dasma/ui/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
 
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Timer(Duration(seconds: 3), 
         () => Navigator.pushReplacement(context, 
-            MaterialPageRoute(builder: (context) => LoginPage())));
+            MaterialPageRoute(builder: (context) => HomeScreen()          )));
   }
 
   @override
