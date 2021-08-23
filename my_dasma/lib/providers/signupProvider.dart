@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:my_dasma/City.dart';
+import 'package:my_dasma/Country.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 
 class SignupProvider extends ChangeNotifier{
@@ -6,8 +8,15 @@ class SignupProvider extends ChangeNotifier{
   DateTime selectedDate = DateTime.now();
   var tabIndex = 0;
   String country="";
-  String state="";
+  String businesscountry="";
+  String selectedCityUser="Select your city";
+  String selectedCityBusiness="Select your city";
+
+  String state="Select your city";
+  String businessState="";
   var strNoFileChose = "No File chosen";
+  late Country cc;
+  late City cityObject;
 
   void setSelecteDate(DateTime value) {
     selectedDate = value;
@@ -34,5 +43,33 @@ class SignupProvider extends ChangeNotifier{
     notifyListeners();
   }
 
+  void setBusinessCountry(String value) {
+    businesscountry = value;
+    notifyListeners();
+  }
 
+  void setBusinessState(String value) {
+    businessState = value;
+    notifyListeners();
+  }
+
+  void setCountryObject(Country value) {
+    cc = value;
+    notifyListeners();
+  }
+
+  void setCityObject(City value) {
+    cityObject = value;
+    notifyListeners();
+  }
+
+  void setCityHint(String value) {
+    selectedCityUser = value;
+    notifyListeners();
+  }
+
+  void setBusinessCityHint(String value) {
+    selectedCityBusiness = value;
+    notifyListeners();
+  }
 }

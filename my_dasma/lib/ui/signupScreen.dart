@@ -38,13 +38,13 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
   var picked;
 
   var selectedCountryUser = "Select your country";
-  var selectedCityUser = "Select your city";
+  // var selectedCityUser = "Select your city";
   var selectedCountryBusiness = "Select your country";
-  var selectedCityBusiness = "Select your city";
-  var btnTextReg = "Registration";
+//  var selectedCityBusiness = "Select your city";
+
   var btnTextChooseFile = "Choose File";
   var dateText="Birth date";
-   List<Data> countryList =[];
+    List<Data> countryList =[];
    List<DataCity> cityList =[];
    List<String> countryListData =[];
    List<String> cityListData =[];
@@ -186,7 +186,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
                           validationForBusinessTab();
                         }
 
-                      }, btnText: btnTextReg),
+                      }, btnText: txtSignUp),
                       SizedBox(height: 20.0.h)
                     ],
                   ),
@@ -357,6 +357,14 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
                 onChange: (String selected) {
                   signupProviderWatch.setCountry(selected);
                   selectedCountryUser = signupProviderWatch.country;
+
+                  signupProviderWatch.setCityHint("Select your city");
+                  signupProviderWatch.setStateViseCountry(signupProviderWatch.selectedCityUser);
+                  // setState(() {
+                  //   selectedCityUser="Select your city";
+                  //   signupProviderWatch.setStateViseCountry(selectedCityUser);
+                  // });
+
                   for (var i = 0; i < countryList.length; i++) {
                     if(selectedCountryUser==countryList[i].title)
                     {
@@ -391,7 +399,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
         SizedBox(height:5.h),
         InkWell(
             onTap: () {
-             signupProviderWatch.setStateViseCountry(selectedCityUser);
+             signupProviderWatch.setStateViseCountry(signupProviderWatch.selectedCityUser);
 
               SelectDialog.showModal<String>(
                 context,
@@ -400,7 +408,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
                 items: cityListData,
                 onChange: (String selected) {
                   signupProviderWatch.setStateViseCountry(selected);
-                  selectedCityUser = signupProviderWatch.state;
+                  signupProviderWatch.setCityHint(signupProviderWatch.state);
                   // setState(() {
                   //   ex1 = selected;
                   //   selectedCityUser = ex1;
@@ -413,7 +421,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
               // });
             },
 
-            child: getTextWidget(selectedCityUser)),
+            child: getTextWidget(signupProviderWatch.selectedCityUser)),
         SizedBox(height:5.h),
 
 
@@ -592,61 +600,78 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
 
         InkWell(
             onTap: (){
-              String ex1 = selectedCountryBusiness;
+              // String ex1 = selectedCountryBusiness;
+              signupProviderWatch.setBusinessCountry(selectedCountryBusiness);
 
               SelectDialog.showModal<String>(
                 context,
                 label: "Select your country",
-                selectedValue: ex1,
+                selectedValue: signupProviderWatch.businesscountry,
                 items: countryListData,
                 onChange: (String selected) {
-                  setState(() {
-                    ex1 = selected;
-                    selectedCountryBusiness = ex1;
-                    for (var i = 0; i < countryList.length; i++) {
-                      if(selectedCountryBusiness==countryList[i].title)
-                      {
-                        Future.delayed(Duration.zero, () {
-                          getProgress(context);
-                        });
-                        fetchCity(countryList[i].id);
-                      }
+                  signupProviderWatch.setBusinessCountry(selected);
+                  selectedCountryBusiness = signupProviderWatch.businesscountry;
+
+                  signupProviderWatch.setBusinessCityHint("Select your city");
+                  signupProviderWatch.setBusinessState(signupProviderWatch.selectedCityBusiness);
+                  for (var i = 0; i < countryList.length; i++) {
+                    if(selectedCountryBusiness==countryList[i].title)
+                    {
+                      Future.delayed(Duration.zero, () {
+                        getProgress(context);
+                      });
+                      fetchCity(countryList[i].id);
                     }
-                  });
+                  }
+                  // setState(() {
+                  //   ex1 = selected;
+                  //   selectedCountryBusiness = ex1;
+                  //   for (var i = 0; i < countryList.length; i++) {
+                  //     if(selectedCountryBusiness==countryList[i].title)
+                  //     {
+                  //       Future.delayed(Duration.zero, () {
+                  //         getProgress(context);
+                  //       });
+                  //       fetchCity(countryList[i].id);
+                  //     }
+                  //   }
+                  // });
                 },
               );
 
-              setState(() {
-                selectedCountryBusiness = ex1;
-              });
+              // setState(() {
+              //   selectedCountryBusiness = ex1;
+              // });
             },
             child: getTextWidget(selectedCountryBusiness)),
         SizedBox(height:5.h),
 
         InkWell(
             onTap: () {
-              String ex1 = selectedCityBusiness;
 
+              signupProviderWatch.setBusinessState(signupProviderWatch.selectedCityBusiness);
               SelectDialog.showModal<String>(
                 context,
-                label: "Select your city",
-                selectedValue: ex1,
+                label: signupProviderWatch.selectedCityBusiness,
+                selectedValue: signupProviderWatch.businessState,
                 items: cityListData,
                 onChange: (String selected) {
-                  setState(() {
-                    ex1 = selected;
-                    selectedCityBusiness = ex1;
-                    //fetchCity();
-                  });
+                  signupProviderWatch.setBusinessState(selected);
+                  signupProviderWatch.setBusinessCityHint(signupProviderWatch.businessState);
+                  // setState(() {
+                  //   ex1 = selected;
+                  //   selectedCityBusiness = ex1;
+                  //   //fetchCity();
+                  // });
                 },
               );
 
-              setState(() {
-                selectedCityBusiness = ex1;
-              });
+              // setState(() {
+              //   selectedCityBusiness = ex1;
+              // });
             },
 
-            child: getTextWidget(selectedCityBusiness)),
+            child: getTextWidget(signupProviderWatch.selectedCityBusiness)),
         SizedBox(height:5.h),
 
 
@@ -768,7 +793,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
     } else if (selectedCountryUser == "Select your country"){
       showSnackBar(context, errSelectCountry);
       return;
-    } else if (selectedCityUser == "Select your city"){
+    } else if (signupProviderWatch.selectedCityUser == "Select your city"){
       showSnackBar(context, errSelectCity);
       return;
     } else if (_numOfHouseControllerU!.text.isEmpty){
@@ -848,7 +873,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
     } else if (selectedCountryBusiness == "Select your country"){
       showSnackBar(context, errSelectCountry);
       return;
-    } else if (selectedCityBusiness == "Select your city"){
+    } else if (signupProviderWatch.selectedCityBusiness == "Select your city"){
       showSnackBar(context, errSelectCity);
       return;
     } else if (_numHouseControllerB!.text.isEmpty){
@@ -951,17 +976,22 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
           final result = json.decode(response.body);
           print("" + ".......getSupplierLogin......." + result.toString());
           bool success = result["status"];
-          Country cc;
+          // Country cc;
           if (success) {
             Navigator.pop(context);
-            setState(() {
-              cc=Country.fromJson(json.decode(response.body));
-              countryList.addAll(cc.datalist);
-              for (var i = 0; i < countryList.length; i++) {
-                countryListData.add(countryList[i].title);
-              }
-
-            });
+            signupProviderWatch.setCountryObject(Country.fromJson(json.decode(response.body)));
+            countryList.addAll(signupProviderWatch.cc.datalist);
+            for (var i = 0; i < countryList.length; i++) {
+              countryListData.add(countryList[i].title);
+            }
+            // setState(() {
+            //   cc=Country.fromJson(json.decode(response.body));
+            //   countryList.addAll(cc.datalist);
+            //   for (var i = 0; i < countryList.length; i++) {
+            //     countryListData.add(countryList[i].title);
+            //   }
+            //
+            // });
           }
           else {
             String message =result["message"];
@@ -973,6 +1003,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
   }
 
   fetchCity(String id) async {
+    print("city api call:"+id);
     Map<String, dynamic> map = Map<String, dynamic>();
     map["c_id"] =  id;
 
@@ -991,16 +1022,23 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
           final result = json.decode(response.body);
           print("" + ".......getSupplierLogin......." + result.toString());
           bool success = result["status"];
-          City cc;
-          if (success) {
-            setState(() {
-              cc=City.fromJson(json.decode(response.body));
-              cityList.addAll(cc.datalist);
-              for (var i = 0; i < cityList.length; i++) {
-                cityListData.add(cityList[i].title);
-              }
 
-            });
+          if (success) {
+            signupProviderWatch.setCityObject(City.fromJson(json.decode(response.body)));
+            cityList.clear();
+            cityListData.clear();
+            cityList.addAll(signupProviderWatch.cityObject.datalist);
+            for (var i = 0; i < cityList.length; i++) {
+              cityListData.add(cityList[i].title);
+            }
+            // setState(() {
+            //   cc=City.fromJson(json.decode(response.body));
+            //   cityList.addAll(cc.datalist);
+            //   for (var i = 0; i < cityList.length; i++) {
+            //     cityListData.add(cityList[i].title);
+            //   }
+            //
+            // });
           }
           else {
             String message =result["message"];
