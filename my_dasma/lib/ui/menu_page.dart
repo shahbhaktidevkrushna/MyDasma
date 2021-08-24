@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 //import 'package:my_dasma/pages/home_screen.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'home_screen.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -31,7 +31,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle androidStyle = const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white);
+    final TextStyle androidStyle =  TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.white);
     final TextStyle iosStyle = const TextStyle(color: Colors.white);
     final style = kIsWeb
         ? androidStyle
@@ -45,7 +45,7 @@ class _MenuScreenState extends State<MenuScreen> {
           gradient: LinearGradient(
             colors: [
               Theme.of(context).primaryColor,
-              Colors.indigo,
+              Colors.white.withOpacity(0.99),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -56,12 +56,15 @@ class _MenuScreenState extends State<MenuScreen> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Spacer(),
+
+              SizedBox(
+                height: 30.h,
+              ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 24.0, left: 24.0, right: 24.0),
+                padding:  EdgeInsets.only(bottom: 24.h, left: 24.h, right: 24.h),
                 child: Container(
-                  width: 80,
-                  height: 80,
+                  width: 80.h,
+                  height: 80.h,
                   decoration: BoxDecoration(
                     color: Colors.grey[300],
                     shape: BoxShape.circle,
@@ -69,7 +72,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 36.0, left: 24.0, right: 24.0),
+                padding:  EdgeInsets.only(bottom: 36.h, left: 24.h, right: 24.h),
                 child: Text(
                   tr("name"),
                   style: TextStyle(
@@ -81,26 +84,29 @@ class _MenuScreenState extends State<MenuScreen> {
               ),
               Selector<MenuProvider, int>(
                 selector: (_, provider) => provider.currentPage,
-                builder: (_, index, __) => Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    ...widget.mainMenu
-                        .map((item) => MenuItemWidget(
-                              key: Key(item.index.toString()),
-                              item: item,
-                              callback: widget.callback,
-                              widthBox: widthBox,
-                              style: style,
-                              selected: index == item.index,
-                            ))
-                        .toList()
-                  ],
+                builder: (_, index, __) => Padding(
+                  padding:  EdgeInsets.only(bottom: 36.h, left: 24.h, right: 24.h),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      ...widget.mainMenu
+                          .map((item) => MenuItemWidget(
+                                key: Key(item.index.toString()),
+                                item: item,
+                                callback: widget.callback,
+                                widthBox: widthBox,
+                                style: style,
+                                selected: index == item.index,
+                              ))
+                          .toList()
+                    ],
+                  ),
                 ),
               ),
               Spacer(),
               Padding(
-                padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+                padding:  EdgeInsets.only(left: 24.h, right: 24.h),
                 child: OutlinedButton(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),

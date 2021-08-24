@@ -15,7 +15,8 @@ class HomeScreen extends StatefulWidget {
     MenuItem(tr("Media"), Icons.card_giftcard, 1),
     MenuItem(tr("Blog"), Icons.notifications, 2),
     MenuItem(tr("Contact us"), Icons.help, 3),
-    MenuItem(tr("About_us"), Icons.info_outline, 4),
+    MenuItem(tr("About us"), Icons.info_outline, 4),
+     MenuItem(tr("Privacy Policy"), Icons.info_outline, 5),
   ];
 
   @override
@@ -34,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       //controller: _drawerController,
       style: DrawerStyle.Style1,
+
       menuScreen: MenuScreen(
         HomeScreen.mainMenu,
         callback: _updatePage,
