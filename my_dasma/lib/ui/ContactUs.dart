@@ -8,26 +8,14 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
+import 'package:my_dasma/extras/constants/AppImages.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:provider/provider.dart';
 import 'home_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-class PageStructure extends StatelessWidget {
-  final String? title;
-  final Widget? child;
-  final List<Widget>? actions;
-  final Color? backgroundColor;
-  final double? elevation;
-
-  const PageStructure({
-    Key? key,
-    this.title,
-    this.child,
-    this.actions,
-    this.backgroundColor,
-    this.elevation,
-  }) : super(key: key);
+class ContactUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +25,7 @@ class PageStructure extends StatelessWidget {
       backgroundColor: Colors.transparent,
       appBar: CommonAppBar(
         appBar: AppBar(),
-        title: txtHome,
+        title: txtContactUs,
         AppBarBackground:colorPurple,
         isLeading: false,
         // isDrawer: true,
@@ -47,11 +35,13 @@ class PageStructure extends StatelessWidget {
 
       body:SafeArea(
         child:  Container(
-          alignment: Alignment.center,
-          color: Colors.white,
-          child:
-          Text("${tr("current")}: ${HomeScreen.mainMenu[_currentPage].title}"),
+            alignment: Alignment.center,
+            color: Colors.white,
+            child:
+            Image.asset(comingsoon,height: 120.h,width: 300.h,)
+          // Text("${tr("current")}: ${HomeScreen.mainMenu[_currentPage].title}"),
         ),
+
       ),
     );
   }

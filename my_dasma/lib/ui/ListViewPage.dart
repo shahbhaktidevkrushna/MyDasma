@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
+import 'package:my_dasma/extras/constants/AppColor.dart';
 
 class ListViewPage extends StatefulWidget {
   const ListViewPage({Key? key}) : super(key: key);
@@ -14,7 +16,15 @@ class _ListViewPageState extends State<ListViewPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        //appBar: AppBar(),
+      appBar: CommonAppBar(
+        appBar: AppBar(),
+        isLeading: false,
+        isDrawer: true,
+        title: "Home",
+        AppBarBackground: colorPurple,
+
+
+      ),
 
         body: ListView.builder(
             itemCount: 10,

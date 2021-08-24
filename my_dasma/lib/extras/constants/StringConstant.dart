@@ -24,7 +24,12 @@ const txtBusinessName = "Business name";
 const txtBusinessType = "Type of business";
 const txtSubmit = "Submit";
 const txtForgotMsg = "Don't worry we just need your \n register email address and its done";
-
+const txtHome = "Home";
+const txtMedia = "Media";
+const txtBlog = "Blog";
+const txtContactUs = "Contact us";
+const txtAboutUs = "About us";
+const txtPrivacyPolicy = "Privacy Policy";
 
 
 

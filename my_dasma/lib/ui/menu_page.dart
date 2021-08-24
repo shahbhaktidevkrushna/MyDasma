@@ -44,6 +44,7 @@ class _MenuScreenState extends State<MenuScreen> {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
+              // Theme.of(context).primaryColor,
               Theme.of(context).primaryColor,
               Colors.white.withOpacity(0.99),
             ],
@@ -112,7 +113,7 @@ class _MenuScreenState extends State<MenuScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       tr("logout"),
-                      style: TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 18,color: Colors.white),
                     ),
                   ),
                   style: OutlinedButton.styleFrom(
