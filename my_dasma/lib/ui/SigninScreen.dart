@@ -9,6 +9,7 @@ import 'package:my_dasma/extras/constants/Constant.dart';
 import 'package:my_dasma/UserData.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:my_dasma/providers/loginProvider.dart';
+import 'package:my_dasma/ui/ListViewPage.dart';
 import 'package:my_dasma/ui/WelcomePage.dart';
 import 'package:my_dasma/ui/forgotPasswordPage.dart';
 import 'package:my_dasma/ui/home_screen.dart';
@@ -193,9 +194,8 @@ class _LoginPageState extends State<LoginPage> with Constant{
                             //loginValidationFor();
 
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => HomeScreen()));
+                                builder: (context) => ListViewPage()));
 
-                            showSnackBar(context, "clicked");
 
                             /*Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => EditProfilePage()));*/

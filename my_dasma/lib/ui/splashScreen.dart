@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_dasma/ui/ListViewPage.dart';
 import 'package:my_dasma/ui/SigninScreen.dart';
 import 'package:my_dasma/ui/home_screen.dart';
 
@@ -22,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Timer(Duration(seconds: 3), 
         () => Navigator.pushReplacement(context, 
-            MaterialPageRoute(builder: (context) => HomeScreen()          )));
+            MaterialPageRoute(builder: (context) => ListViewPage())));
   }
 
   @override
