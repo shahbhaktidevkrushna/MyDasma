@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:my_dasma/extras/constants/SharePrefConstant.dart';
 import 'package:my_dasma/ui/ListViewPage.dart';
 import 'package:my_dasma/ui/SigninScreen.dart';
 import 'package:my_dasma/ui/home_screen.dart';
@@ -16,14 +18,29 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
+  final storage = GetStorage();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
+
     Timer(Duration(seconds: 3), 
-        () => Navigator.pushReplacement(context, 
-            MaterialPageRoute(builder: (context) => HomeScreen())));
+        () {
+
+      if(storage.read(isLogin) != null && storage.read(isLogin)) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => HomeScreen()));
+      }
+
+
+      else{
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => LoginPage()));
+
+      }
+  });
   }
 
   @override

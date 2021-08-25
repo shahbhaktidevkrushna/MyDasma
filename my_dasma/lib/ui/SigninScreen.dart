@@ -3,11 +3,14 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/AppImages.dart';
 import 'package:my_dasma/extras/constants/Constant.dart';
 import 'package:my_dasma/UserData.dart';
+import 'package:my_dasma/extras/constants/SharePrefConstant.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
+import 'package:my_dasma/model/LoginModel.dart';
 import 'package:my_dasma/providers/loginProvider.dart';
 import 'package:my_dasma/ui/ListViewPage.dart';
 import 'package:my_dasma/ui/WelcomePage.dart';
@@ -42,6 +45,7 @@ class _LoginPageState extends State<LoginPage> with Constant{
 
   late LoginProvider loginProviderRead;
   late LoginProvider loginProviderWatch;
+  final storage = GetStorage();
 
   @override
   void initState() {
@@ -191,10 +195,8 @@ class _LoginPageState extends State<LoginPage> with Constant{
                         width: MediaQuery.of(context).size.width / 1.2,
                         child: ElevatedButton(
                           onPressed: () {
-                            //loginValidationFor();
+                            loginValidationFor();
 
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ListViewPage()));
 
 
                             /*Navigator.of(context).push(MaterialPageRoute(
@@ -310,11 +312,23 @@ class _LoginPageState extends State<LoginPage> with Constant{
     map["password"] = _passwordController.text;
 
     Webservice().loadPost(getHomeNews, map).then(
-          (model) => {},
+          (model) => {
+                print("id is::"+model.data!.id.toString()),
+            if(model.status==true)
+              {
+                storage.write(userData, model),
+                storage.write(isLogin, true)
+              }
+            else
+              {
+                storage.write(isLogin, false)
+              }
+
+          },
         );
   }
 
-  Resource<User> get getHomeNews {
+  Resource<LoginModel> get getHomeNews {
     return Resource(
         url: loginProviderWatch.userTypeValue == "User"
             ? "https://www.mydasma.com/mydasma_api/api/user/user_login"
@@ -325,11 +339,16 @@ class _LoginPageState extends State<LoginPage> with Constant{
           print("" + ".......getSupplierLogin......." + result.toString());
           bool success = result["status"];
           if (success) {
+
+
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => WelcomePage()));
+                .push(MaterialPageRoute(builder: (context) => HomeScreen()));
+            return loginModelFromJson(response.body);
           } else {
             String message = result["message"];
             showSnackBar(context, message);
+            return loginModelFromJson(response.body);
+
           }
           return result;
         });
