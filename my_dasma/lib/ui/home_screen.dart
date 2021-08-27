@@ -115,8 +115,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget setScreen(int? index)
   {
     if(index==0) {
-      //return PageStructure();
-      return MediaVideoListPage();
+      return PageStructure();
+      // return MediaVideoListPage();
     }
 
     else if(index==1)

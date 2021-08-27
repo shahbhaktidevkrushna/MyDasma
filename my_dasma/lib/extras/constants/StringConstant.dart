@@ -40,6 +40,8 @@ const txtBlog = "Blog";
 const txtContactUs = "Contact us";
 const txtAboutUs = "About us";
 const txtPrivacyPolicy = "Privacy Policy";
+const txtMinPeople = "Min.People";
+const txtMaxPeople = "Max.People";
 
 
 

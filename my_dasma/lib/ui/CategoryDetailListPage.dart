@@ -23,7 +23,7 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
     return SafeArea(
       child: Scaffold(
 
-        appBar: CommonAppBar(appBar: AppBar(title: Text(txtAllRest),)),
+        appBar: CommonAppBar(appBar: AppBar(),title: txtAllRest,isLeading: true,AppBarBackground: colorPurple,textColor: Colors.white,),
 
         body: /*Row(
           children: [
@@ -109,46 +109,46 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
         ),*/
 
 
-        InkWell(
-          onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => CategoryDetailListDetailPage()));
-          },
-          child: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index){
-              return Wrap(
-                children: [
+        ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index){
+            return Wrap(
+              children: [
 
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
 
-                     // color: Colors.black12,
-                    ),
-                   // width: double.infinity,
-                   // height: 130.h,
-                   // height: double.maxFinite,
-                    //margin: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 0.0.h),
-                    margin: EdgeInsets.only(left: 16.0.w, top: 12.0.h, right: 16.0.w, bottom: 0.0.h),
-                    //padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    //padding: EdgeInsets.only(top: 8.0.h, bottom: 16.0.h),
-                    child: Column(
+                   // color: Colors.black12,
+                  ),
+                 // width: double.infinity,
+                 // height: 130.h,
+                 // height: double.maxFinite,
+                  //margin: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 0.0.h),
+                  margin: EdgeInsets.only(left: 16.0.w, top: 12.0.h, right: 16.0.w, bottom: 0.0.h),
+                  //padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  //padding: EdgeInsets.only(top: 8.0.h, bottom: 16.0.h),
+                  child: Column(
 
-                      children: [
+                    children: [
 
-                        SizedBox(height: 2.0.h,),
+                      SizedBox(height: 2.0.h,),
 
-                       /* Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(txtAllRest, style: TextStyle(
-                              fontSize: 18.sp, fontWeight: FontWeight.bold),),
-                        ),
+                     /* Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(txtAllRest, style: TextStyle(
+                            fontSize: 18.sp, fontWeight: FontWeight.bold),),
+                      ),
 
-                        SizedBox(height: 12.0.h,),*/
+                      SizedBox(height: 12.0.h,),*/
 
-                        Row(
+                      InkWell(
+                        onTap: (){
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => CategoryDetailListDetailPage(restName: txtCatListTitle,)));
+                        },
+                        child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
 
@@ -281,22 +281,22 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
                             //SizedBox(height: 4.h,)
                           ],
                         ),
+                      ),
 
-                        SizedBox(height: 12.h),
+                      SizedBox(height: 12.h),
 
-                        Divider(
-                          color: Colors.grey,
-                          thickness: 1.h,),
+                      Divider(
+                        color: Colors.grey,
+                        thickness: 1.h,),
 
-                       // SizedBox(height: 12.h),
-                      ],
-                    ),
+                     // SizedBox(height: 12.h),
+                    ],
                   ),
-                ],
-              );
-            },
-           // padding: EdgeInsets.all(0.0),
-          ),
+                ),
+              ],
+            );
+          },
+         // padding: EdgeInsets.all(0.0),
         ),
 
       ),

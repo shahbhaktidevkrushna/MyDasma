@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ScreenUtilInit(
       designSize: Size(360, 640),
       builder: () => MaterialApp(
@@ -56,7 +57,8 @@ class MyApp extends StatelessWidget {
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
-        theme: ThemeData(
+        theme:
+        ThemeData(
           //primarySwatch: MaterialColor(0xff6E0CDB, { 500: Color(0xff6E0CDB)}),
          // primaryColor: Color(0xff6E0CDB)
           //primarySwatch: Color(0xff6E0CDB)

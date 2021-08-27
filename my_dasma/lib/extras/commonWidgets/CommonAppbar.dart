@@ -40,7 +40,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: false,
       brightness: Brightness.light,
         leading: isLeading == true?IconButton(
-              icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+              icon: Icon(Icons.arrow_back_ios, color:AppBarBackground != null ? Colors.white:Colors.white),
               onPressed: () {
                 Navigator.pop(context);
               }) :
