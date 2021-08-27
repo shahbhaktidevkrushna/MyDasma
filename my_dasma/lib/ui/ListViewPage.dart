@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
 import 'package:my_dasma/extras/constants/AppImages.dart';
@@ -78,7 +79,7 @@ class _ListViewPageState extends State<ListViewPage> {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    Ink.image(image: AssetImage(listViewImage3),
+                    Ink.image(image: AssetImage(catDetailImage2),
                     height: 100.h,
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.7), BlendMode.dstATop),
