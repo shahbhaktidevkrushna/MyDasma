@@ -5,6 +5,7 @@ import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/AppImages.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
+import 'package:my_dasma/ui/CategoryDetailListPage.dart';
 import 'package:provider/provider.dart';
 import 'home_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -62,14 +63,15 @@ class PageStructure extends StatelessWidget {
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      Ink.image(image: AssetImage(listViewImage3),
+                      Ink.image(image: AssetImage(catDetailImage2),
                         height: 100.h,
                         fit: BoxFit.cover,
                         colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.7), BlendMode.dstATop),
 
                         child: InkWell(
                           onTap: (){
-
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => CategoryDetailListPage()));
                           },
                         ),),
                       Container(
