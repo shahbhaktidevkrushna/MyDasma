@@ -1,9 +1,16 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_dasma/extras/constants/StringConstant.dart';
+import 'package:my_dasma/providers/loginProvider.dart';
+import 'package:my_dasma/providers/signupProvider.dart';
 
 class CustomDropDownBtn extends StatefulWidget {
-  const CustomDropDownBtn({Key? key}) : super(key: key);
+  SignupProvider? signupProvider;
+  LoginProvider? loginProvider;
+
+
+  CustomDropDownBtn({Key? key, this.signupProvider, this.loginProvider}) : super(key: key);
 
   static const String _title = 'Flutter Code Sample';
 

@@ -8,8 +8,8 @@ import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:my_dasma/ui/AboutUs.dart';
 import 'package:my_dasma/ui/BlogScreen.dart';
 import 'package:my_dasma/ui/ContactUs.dart';
+import 'package:my_dasma/ui/MediaPlayScreen.dart';
 import 'package:my_dasma/ui/MediaScreen.dart';
-import 'package:my_dasma/ui/MediaVideoListPage.dart';
 import 'package:my_dasma/ui/PrivacyPolicy.dart';
 import 'package:my_dasma/ui/page_structure.dart';
 import 'package:provider/provider.dart';
@@ -115,8 +115,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget setScreen(int? index)
   {
     if(index==0) {
-      //return PageStructure();
-      return MediaVideoListPage();
+      return PageStructure();
     }
 
     else if(index==1)

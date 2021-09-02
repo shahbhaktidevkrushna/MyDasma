@@ -23,7 +23,13 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
     return SafeArea(
       child: Scaffold(
 
-        appBar: CommonAppBar(appBar: AppBar(title: Text(txtAllRest),)),
+        appBar: CommonAppBar(appBar: AppBar(),
+        AppBarBackground: colorPurple,
+        title: txtAllRest,
+        action: [
+          IconButton(onPressed: () {
+          }, icon: Icon(Icons.filter_alt_outlined),)
+        ],),
 
         body: /*Row(
           children: [
@@ -301,9 +307,5 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
 
       ),
     );
-  }
-
-  Widget getItem(){
-    return Container();
   }
 }

@@ -170,6 +170,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
             ]),
 ),
               SizedBox(height: 10.0.h),
+
               Container(
                // height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
@@ -532,12 +533,60 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
 
         SizedBox(height:15.h),
 
+        Container(
+          width: MediaQuery.of(context).size.width / 1.2,
+          height: 38.h,
+          padding: EdgeInsets.only(
+              top: 4.h, left: 16.w, right: 16.w, bottom: 4.h),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(50)),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(color: Colors.black12, blurRadius: 5.r)
+              ]),
+          child: DropdownButton(
+          //  hint: loginProviderWatch.userTypeValue == null
+            hint: signupProviderWatch.businessType == null
+                ? Text('Dropdown')
+              //  : Text(""+loginProviderWatch.userTypeValue.toString(),
+                : Text(""+signupProviderWatch.businessType.toString(),
+              style: TextStyle(color: Colors.black),
+            ),
+            isExpanded: true,
+            iconSize: 30.0.r,
+            underline: Container(),
+            style: TextStyle(color: Colors.black),
+            items: [txtSinger, txtRestaurant, txtCameraMan,
+              txtPhotographer, txtCameraManAndPhotographer,
+              txtDJ, txtDancers, txtDecor,
+              txtHairdressersAndMakeupArtists].map(
+                  (val) {
+                return DropdownMenuItem<String>(
+                  value: val,
+                  child: Text(val),
+                );
+              },
+            ).toList(),
+            onChanged: (val) {
+           //   loginProviderWatch.setUserType(val.toString());
+              signupProviderWatch.setBusinessType(val.toString());
+              // setState(
+              //       () {
+              //     _dropDownValue = val.toString();
+              //   },
+              // );
+            },
+          ),
+        ),
+
+        /*SizedBox(height:15.h),
+
         CommonEditTextWidget(
           context: context,
           lableText:txtBusinessType ,
           txtController: _typeBControllerB,
           textInputType: TextInputType.text,
-          textInputAction: TextInputAction.next,),
+          textInputAction: TextInputAction.next,),*/
 
         SizedBox(height:15.h),
 
