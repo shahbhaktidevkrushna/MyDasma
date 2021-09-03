@@ -5,4 +5,15 @@ const comingsoon = "assets/under_construction.png";
 const catDetailImage = "assets/categoryDetailImage.jpg";
 const catDetailImage2 = "assets/rsz_categoryDetailImage.jpg";
 const userdata = "assets/userdata.png";
+const descriptionIcon = "assets/description_icon.png";
+const equipmentIcon = "assets/equipment.png";
+const locationIcon = "assets/location.png";
+const packagesIcon = "assets/packages.png";
+const reviewIcon = "assets/review.png";
+const photoIcon = "assets/photo.png";
+const freeServiceIcon = "assets/freeService.png";
+const parkingIcon = "assets/parking_icon.png";
+const playgroundIcon = "assets/playground_icon.png";
+const swimmingpoolIcon = "assets/swimmingpool_icon.png";
+const gradiant_back_image = "assets/gradiant_image.jpeg";
 

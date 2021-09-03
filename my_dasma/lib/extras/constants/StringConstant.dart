@@ -42,6 +42,35 @@ const txtAboutUs = "About us";
 const txtPrivacyPolicy = "Privacy Policy";
 const txtMinPeople = "Min.People";
 const txtMaxPeople = "Max.People";
+const txtPartyName = "Name of party";
+const txtService = "Service";
+const txtPricePerPerson = "Price per person";
+const txtDescription = "Description";
+const txtDetail = "Detail";
+const txtCalendar = "Calendar";
+const txtMenu = "Menu";
+const txtEquipment = "Equipment";
+const txtFreeServices = "Free Services";
+const txtPhotos = "Photos";
+const txtLocation = "Location";
+const txtComment = "Comment";
+const txtSkills = "Skills";
+const txtResOtherInfo = "Restaurant Other info.";
+const txtResBasicInfo = "Restaurant Basic info.";
+const txtSingerOtherInfo = "Singer Other info.";
+const txtSingerBasicInfo = "Singer Basic info.";
+const txtCameraOtherInfo = "Cameraman Other info.";
+const txtCameraBasicInfo = "Cameraman Basic info.";
+const txtPhotographerOtherInfo = "Photographer Other info.";
+const txtPhotographerBasicInfo = "Photographer Basic info.";
+const txtDecorationOtherInfo = "Decoration Other info.";
+const txtDecorationBasicInfo = "Decoration Basic info.";
+const txtHairdressersmakeupOtherInfo = "Hairdressers and makeup Other info.";
+const txtHairdressersmakeupBasicInfo = "Hairdressers and makeup Basic info.";
+const txtDjOtherInfo = "DJ Other info.";
+const txtDjBasicInfo = "DJ Basic info.";
+const txtDancersOtherInfo = "Dancers Other info.";
+const txtDancersBasicInfo = "Dancers Basic info.";
 
 
 
@@ -66,6 +95,22 @@ const errEmptyPostCode = "Post code is empty";
 const errSelectYourBirthdate = "please select your birthdate";
 const errPasswordNotValid = "Password is not valid";
 const errNoFileChoose = "No File chosen";
+
+// Fix category
+const catRest = "RESTAURANTS";
+const catSinger = "SINGERS";
+const catCameraman = "CAMERAMAN";
+const catPhotographer = "PHOTOGRAPHER";
+const catCameraPhotographer = "CAMERAMAN AND PHOTOGRAPHER";
+const catDecoration = "DECORATION";
+const catMakeup = "HAIRDRESSERS AND MAKE-UP";
+const catDJ = "DJ";
+const catDancer = "DANCER";
+
+// Static content (remove after api call)
+
+const resDescription = "Eclipse Resort is one of the largest resorts in Albania and the region. With many years of experience and well-qualified staff, Eclipse Resort offers high quality service and warmth to all potential guests. The space and staff of the hotel provide you with unprecedented comfort and convenience elsewhere. Any party (merry / wedding,…) can only make sense at the Eclipse Complex. The resort also features summer and winter swimming pools. And, above all, Eclipse Resort is the most beautiful and amazing place possible for your wedding, because the complex has 3 brilliant wedding halls, with capacities from 150, 250 and 450 people. Meanwhile, if you have dreamed of organizing a real wedding like in fairy tales, then such a thing you can make a reality quite easily through the online platform MyDasma.";
+
 
 
 

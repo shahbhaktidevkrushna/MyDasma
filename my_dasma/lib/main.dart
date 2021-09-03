@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_dasma/providers/CategoryDetailProvider.dart';
 
 import 'package:my_dasma/providers/loginProvider.dart';
 import 'package:my_dasma/providers/signupProvider.dart';
@@ -23,6 +24,7 @@ void main() async{
         ChangeNotifierProvider(create: (_) =>  LoginProvider()),
         ChangeNotifierProvider(create: (_) =>  SignupProvider()),
         ChangeNotifierProvider(create: (_) =>  MenuProvider()),
+        ChangeNotifierProvider(create: (_) =>  CategoryDetailProvider()),
 
       ],child:  MyApp()),
 

@@ -11,7 +11,10 @@ import 'package:my_dasma/ui/home_screen.dart';
 
 
 class CategoryDetailListPage extends StatefulWidget {
-  const CategoryDetailListPage({Key? key}) : super(key: key);
+
+  final String isFrom;
+
+  const CategoryDetailListPage({Key? key,required this.isFrom}) : super(key: key);
 
   @override
   _CategoryDetailListPageState createState() => _CategoryDetailListPageState();
@@ -23,93 +26,9 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
     return SafeArea(
       child: Scaffold(
 
-        appBar: CommonAppBar(appBar: AppBar(),title: txtAllRest,isLeading: true,AppBarBackground: colorPurple,textColor: Colors.white,),
+        appBar: CommonAppBar(appBar: AppBar(),title: "All "+widget.isFrom,isLeading: true,AppBarBackground: colorPurple,textColor: Colors.white,),
 
-        body: /*Row(
-          children: [
-              Text(txtAllRest),
-
-              Container(
-                height: double.infinity,
-                child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: 10,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index){
-                      return Container(
-                        child: *//*Row(
-                          children: [
-                            Image.asset(catDetailImage),
-
-                            Column(
-                              children: [
-                                Container(
-                                    margin: EdgeInsets.only(left: 16.0.w),
-                                    child: Text(txtCatListTitle,
-                                      style: TextStyle(fontSize: 18.0.sp,
-                                          fontWeight: FontWeight.bold),)),
-
-                                RatingBar.builder(
-                                  initialRating: 3,
-                                  minRating: 1,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemPadding: EdgeInsets.symmetric(horizontal: 0.w),
-                                  itemBuilder: (context, _) => Icon(
-                                    Icons.star,
-                                    color: Colors.amber
-                                    ,
-
-                                  ),
-                                  onRatingUpdate: (rating) {
-                                    print(rating);
-                                  },
-                                ),
-
-                              ],
-                            )
-                          ],
-                        ),*//*
-
-                        Row(
-                          children: [
-                            //Image.asset("assets/"+image),
-                            *//*SvgPicture.asset(
-                           //   'assets/' + image,
-                              ,
-                              height: 50.0.h,
-                              width: 100.0.w,
-                              allowDrawingOutsideViewBox: true,
-                              //colorBlendMode: ,
-                            ),*//*
-
-                            Image.asset(catDetailImage,  height: 50.0.h,
-                              width: 50.0.w,),
-
-                            SizedBox(width: 16.0.w),
-
-                            Flexible(
-                              fit: FlexFit.tight,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(txtCatListTitle, style: TextStyle(color: Color(0xff000000), fontWeight: FontWeight.bold),),
-                                  SizedBox(height: 4.h,),
-                                 // Text(""),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    }),
-              )
-          ],
-        ),*/
-
-
-        ListView.builder(
+        body: ListView.builder(
           itemCount: 10,
           itemBuilder: (context, index){
             return Wrap(
@@ -146,7 +65,7 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
                       InkWell(
                         onTap: (){
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => CategoryDetailListDetailPage(restName: txtCatListTitle,)));
+                              builder: (context) => CategoryDetailListDetailPage(restName: txtCatListTitle,isFrom: widget.isFrom,)));
                         },
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -218,32 +137,38 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
                                     /*SizedBox(
                                       height: 6,
                                     ),*/
-                                    Row(
-                                      children: <Widget>[
-                                        /*Icon(
-                                          Icons.location_on,
-                                          //color: secondary,
-                                          size: 20,
-                                        ),
-                                        SizedBox(
-                                          width: 5,
-                                        ),*/
-                                        Text(txtCatListSubTitle2,
-                                            style: TextStyle(
-                                                //color: primary,
-                                                fontSize: 13, letterSpacing: .3)),
-                                      ],
+                                    Visibility(
+                                      visible:widget.isFrom==catRest,
+                                      child: Row(
+                                        children: <Widget>[
+                                          /*Icon(
+                                            Icons.location_on,
+                                            //color: secondary,
+                                            size: 20,
+                                          ),
+                                          SizedBox(
+                                            width: 5,
+                                          ),*/
+                                          Text(txtCatListSubTitle2,
+                                              style: TextStyle(
+                                                  //color: primary,
+                                                  fontSize: 13, letterSpacing: .3)),
+                                        ],
+                                      ),
                                     ),
 
-                                    SizedBox(height: 4.h,),
+                                    widget.isFrom==catRest?SizedBox(height: 4.h,):SizedBox(),
 
-                                    Row(
-                                      children: [
-                                        Text(txtCatListSubTitle3,
-                                            style: TextStyle(
-                                              //color: primary,
-                                                fontSize: 13, letterSpacing: .3)),
-                                      ],
+                                    Visibility(
+                                      visible:widget.isFrom==catRest,
+                                      child: Row(
+                                        children: [
+                                          Text(txtCatListSubTitle3,
+                                              style: TextStyle(
+                                                //color: primary,
+                                                  fontSize: 13, letterSpacing: .3)),
+                                        ],
+                                      ),
                                     ),
 
                                     SizedBox(height: 4.h,),
@@ -273,6 +198,15 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
                                         ],
                                       ),
                                     ),
+                                    SizedBox(height: 4.h,),
+                                    widget.isFrom != catRest?Text("Description",style: TextStyle(color: Colors.black,fontSize: 16.sp,fontWeight: FontWeight.bold),):SizedBox(),
+                                    widget.isFrom != catRest ? SizedBox(
+                                      height: 5,
+                                    ):SizedBox(),
+                                    widget.isFrom != catRest?Text("Hello! To all of you dear ones who have known me for decades and who have sung my song and me to entertain you through your family celebrations and joys, I want to thank you, from the bottom of my heart! I, always, have felt very good with you and on",
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 3,
+                                      style: TextStyle(color: Colors.black,fontSize: 10.sp,fontWeight: FontWeight.normal),):SizedBox()
                                   ],
                                 ),
                               ),

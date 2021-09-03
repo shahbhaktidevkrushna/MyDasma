@@ -12,20 +12,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class PageStructure extends StatelessWidget {
-  final String? title;
-  final Widget? child;
-  final List<Widget>? actions;
-  final Color? backgroundColor;
-  final double? elevation;
 
-  const PageStructure({
-    Key? key,
-    this.title,
-    this.child,
-    this.actions,
-    this.backgroundColor,
-    this.elevation,
-  }) : super(key: key);
+
+  final List<CategoryList> categoryList= <CategoryList>[
+    CategoryList(gradiant_back_image, catRest),
+    CategoryList(gradiant_back_image, catSinger),
+    CategoryList(gradiant_back_image, catCameraman),
+    CategoryList(gradiant_back_image, catPhotographer),
+    CategoryList(gradiant_back_image, catCameraPhotographer),
+    CategoryList(gradiant_back_image, catDecoration),
+    CategoryList(gradiant_back_image, catMakeup),
+    CategoryList(gradiant_back_image, catDJ),
+    CategoryList(gradiant_back_image, catDancer),
+    ];
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,7 @@ class PageStructure extends StatelessWidget {
           color: Colors.white,
           child:
           ListView.builder(
-            itemCount: 10,
+            itemCount: categoryList.length,
             itemBuilder: (context, index){
 
 
@@ -63,7 +65,7 @@ class PageStructure extends StatelessWidget {
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      Ink.image(image: AssetImage(catDetailImage2),
+                      Ink.image(image: AssetImage(categoryList[index].image),
                         height: 100.h,
                         fit: BoxFit.cover,
                         colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.7), BlendMode.dstATop),
@@ -71,7 +73,7 @@ class PageStructure extends StatelessWidget {
                         child: InkWell(
                           onTap: (){
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => CategoryDetailListPage()));
+                                builder: (context) => CategoryDetailListPage(isFrom: categoryList[index].title,)));
                           },
                         ),),
                       Container(
@@ -79,7 +81,7 @@ class PageStructure extends StatelessWidget {
                           children: [
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: 16.0.w)
-                              ,child: Text(txtCatName, style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),),
+                              ,child: Text(categoryList[index].title, style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),),
                               alignment: Alignment.center,),
                           ],
                         ),
@@ -94,4 +96,9 @@ class PageStructure extends StatelessWidget {
       ),
     );
   }
+}
+class CategoryList {
+  final String image;
+  final String title;
+  CategoryList(this.image,this.title );
 }
