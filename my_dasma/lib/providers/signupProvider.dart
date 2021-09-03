@@ -8,6 +8,7 @@ class SignupProvider extends ChangeNotifier{
   DateTime selectedDate = DateTime.now();
   var tabIndex = 0;
   String country="";
+  String businessType = "Select type of business";
   String businesscountry="";
   String selectedCityUser="Select your city";
   String selectedCityBusiness="Select your city";
@@ -30,6 +31,11 @@ class SignupProvider extends ChangeNotifier{
   }
   void setCountry(String value) {
     country = value;
+    notifyListeners();
+  }
+
+  void setBusinessType(String value){
+    businessType = value;
     notifyListeners();
   }
 

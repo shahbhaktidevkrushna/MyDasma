@@ -236,8 +236,4 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
       ),
     );
   }
-
-  Widget getItem(){
-    return Container();
-  }
 }
