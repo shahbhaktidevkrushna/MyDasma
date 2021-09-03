@@ -1,3 +1,4 @@
+import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
@@ -32,9 +33,13 @@ class _MediaPlayScreenState extends State<MediaPlayScreen> {
     // TODO: implement initState
     super.initState();
     SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
     ]);
+
+    //controller.showAndHideOverlay(true);
+    FlickDisplayManager(flickManager: FlickManager(videoPlayerController: VideoPlayerController.network("", )));
+    FlickVideoWithControls();
   }
 
   @override
@@ -47,6 +52,8 @@ class _MediaPlayScreenState extends State<MediaPlayScreen> {
     ]);
     super.dispose();
   }
+
+  final VideoViewerController controller = VideoViewerController();
 
 
   @override
@@ -75,7 +82,7 @@ class _MediaPlayScreenState extends State<MediaPlayScreen> {
 
       body: Container(
         alignment: Alignment.center,
-        color: Colors.grey.shade100,
+        color: Colors.black,
         /*child: ListView.builder(
           itemCount: 5,
           itemBuilder: (context, index) {
@@ -190,4 +197,7 @@ class _MediaPlayScreenState extends State<MediaPlayScreen> {
       ),
     );
   }
+
+ // VideoPlayerController getVideoPlayer() => controller.;
+
 }
