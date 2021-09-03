@@ -93,7 +93,7 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
                                           fontWeight: FontWeight.bold, fontSize: 16.sp, color: colorPurple),
                                     ),
                                     SizedBox(
-                                      height: 4,
+                                      height: 5,
                                     ),
 
                                     RatingBar.builder(
