@@ -14,6 +14,7 @@ import 'package:my_dasma/ui/PrivacyPolicy.dart';
 import 'package:my_dasma/ui/page_structure.dart';
 import 'package:provider/provider.dart';
 
+import 'MediaSelection.dart';
 import 'menu_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -121,7 +122,8 @@ class _MainScreenState extends State<MainScreen> {
 
     else if(index==1)
     {
-      return MediaScreen();
+      //return MediaScreen();
+      return MediaSelection();
     }
     else if(index==2)
     {

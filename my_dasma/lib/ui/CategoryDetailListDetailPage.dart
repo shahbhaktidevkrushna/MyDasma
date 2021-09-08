@@ -552,7 +552,7 @@ class _CategoryDetailListDetailPageState extends State<CategoryDetailListDetailP
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(txtHairdressersmakeupBasicInfo,style: TextStyle(color: Colors.black,fontSize: 16.sp,fontWeight: FontWeight.bold),),
+        Text(txtHairdressersMakeupBasicInfo,style: TextStyle(color: Colors.black,fontSize: 16.sp,fontWeight: FontWeight.bold),),
         Container(
           margin: const EdgeInsets.all(15.0),
           padding: const EdgeInsets.all(3.0),
@@ -586,7 +586,7 @@ class _CategoryDetailListDetailPageState extends State<CategoryDetailListDetailP
         ),
 
         SizedBox(height: 10.h,),
-        Text(txtHairdressersmakeupOtherInfo,style: TextStyle(color: Colors.black,fontSize: 16.sp,fontWeight: FontWeight.bold),),
+        Text(txtHairdressersMakeupOtherInfo,style: TextStyle(color: Colors.black,fontSize: 16.sp,fontWeight: FontWeight.bold),),
         SizedBox(height: 10.h,),
         textWithIcon(descriptionIcon,txtDetail,txtDetail),
         textWithIcon(freeServiceIcon,txtCalendar,txtCalendar),

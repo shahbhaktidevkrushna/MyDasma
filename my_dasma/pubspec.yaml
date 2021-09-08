@@ -55,6 +55,8 @@ dependencies:
   video_viewer: ^1.2.6
   video_thumbnail: ^0.4.3
   chewie: ^1.2.2
+  image_picker: ^0.8.4
+  numberpicker: ^2.0.1
 
 
 dev_dependencies:
@@ -64,7 +66,7 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
-# The following section is specific to Flutter.
+# The following section is specific t o Flutter.
 flutter:
 
   # The following line ensures that the Material Icons font is
