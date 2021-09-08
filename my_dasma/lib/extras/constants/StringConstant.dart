@@ -74,13 +74,19 @@ const txtPhotographerOtherInfo = "Photographer Other info.";
 const txtPhotographerBasicInfo = "Photographer Basic info.";
 const txtDecorationOtherInfo = "Decoration Other info.";
 const txtDecorationBasicInfo = "Decoration Basic info.";
-const txtHairdressersmakeupOtherInfo = "Hairdressers and makeup Other info.";
-const txtHairdressersmakeupBasicInfo = "Hairdressers and makeup Basic info.";
+const txtHairdressersMakeupOtherInfo = "Hairdressers and makeup Other info.";
+const txtHairdressersMakeupBasicInfo = "Hairdressers and makeup Basic info.";
 const txtDjOtherInfo = "DJ Other info.";
 const txtDjBasicInfo = "DJ Basic info.";
 const txtDancersOtherInfo = "Dancers Other info.";
 const txtDancersBasicInfo = "Dancers Basic info.";
-
+const txtPhotosOfTheRest = "Photos of the Restaurant";
+const txtRestaurantVideos = "Restaurant Videos";
+const txtYoutubeVideoRest = "On Youtube Videos at Restaurant";
+const txtSelectPhotos = "Select Photos";
+const txtSelectVideos = "Select videos";
+const txtSend = "Send";
+const txtCancel = "Cancel";
 
 
 // Validations msg

@@ -15,6 +15,8 @@ import 'package:my_dasma/ui/HomeScreen.dart';
 import 'package:provider/provider.dart';
 
 import 'userDrawer.dart';
+import 'MediaSelection.dart';
+import 'menu_page.dart';
 
 class UserDashboardScreen extends StatefulWidget {
   static List<MenuItem> mainMenu = [
@@ -121,7 +123,8 @@ class _MainScreenState extends State<MainScreen> {
 
     else if(index==1)
     {
-      return MediaScreen();
+      //return MediaScreen();
+      return MediaSelection();
     }
     else if(index==2)
     {

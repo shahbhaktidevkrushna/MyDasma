@@ -105,9 +105,8 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
 
     SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
       signupProviderRead=context.read<SignupProvider>();
-
-
     });
+
     Future.delayed(Duration.zero, () {
       getProgress(context);
     });
@@ -489,6 +488,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
 
         Container(
           margin: EdgeInsets.only(left: 32.0.w, bottom: 16.0.h),
+
           child: Row(
             children: [
               ElevatedButton(onPressed: () async {
