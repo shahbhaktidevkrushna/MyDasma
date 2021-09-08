@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -39,6 +40,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: false,
       brightness: Brightness.light,
+      systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.orange),
         leading: isLeading == true?IconButton(
               icon: Icon(Icons.arrow_back_ios, color:AppBarBackground != null ? Colors.white:Colors.white),
               onPressed: () {

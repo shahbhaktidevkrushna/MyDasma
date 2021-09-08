@@ -12,11 +12,12 @@ import 'package:my_dasma/extras/constants/SharePrefConstant.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:my_dasma/model/LoginModel.dart';
 import 'package:my_dasma/providers/loginProvider.dart';
+import 'package:my_dasma/ui/BusinessDashboard.dart';
 import 'package:my_dasma/ui/ListViewPage.dart';
 import 'package:my_dasma/ui/WelcomePage.dart';
 import 'package:my_dasma/ui/forgotPasswordPage.dart';
-import 'package:my_dasma/ui/home_screen.dart';
-import 'package:my_dasma/ui/menu_page.dart';
+import 'package:my_dasma/ui/UserDashboard.dart';
+import 'package:my_dasma/ui/userDrawer.dart';
 import 'package:my_dasma/ui/signupScreen.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonEditText.dart';
 import '../webservice.dart';
@@ -317,7 +318,17 @@ class _LoginPageState extends State<LoginPage> with Constant{
             if(model.status==true)
               {
                 storage.write(userData, model),
-                storage.write(isLogin, true)
+                storage.write(isLogin, true),
+                storage.write(loginType, loginProviderWatch.userTypeValue),
+                if(storage.read(loginType)=="User")
+                {
+                Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => UserDashboardScreen()))
+                }
+                else{
+                Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => BusinessDashboard()))
+                }
               }
             else
               {
@@ -341,8 +352,8 @@ class _LoginPageState extends State<LoginPage> with Constant{
           if (success) {
 
 
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => HomeScreen()));
+
+
             return loginModelFromJson(response.body);
           } else {
             String message = result["message"];

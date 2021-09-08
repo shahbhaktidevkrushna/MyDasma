@@ -17,16 +17,9 @@ class MediaPlayScreen extends StatefulWidget {
 }
 
 class _MediaPlayScreenState extends State<MediaPlayScreen> {
-  var videoUrl =
-      "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4";
 
-  Map<String, VideoSource> source = {
-    '720p': VideoSource(
-          video: VideoPlayerController.network(
-            "https://github.com/intel-iot-devkit/sample-videos/blob/master/classroom.mp4"))
 
-   // "https://github.com/intel-iot-devkit/sample-videos/blob/master/classroom.mp4"
-  };
+
 
   @override
   void initState() {
@@ -183,7 +176,9 @@ class _MediaPlayScreenState extends State<MediaPlayScreen> {
             onFullscreenFixLandscape: true,
             enableShowReplayIconAtVideoEnd: true,
             enableFullscreenScale: true,
+
             autoPlay: true,
+
             style: VideoViewerStyle(
               thumbnail: Image.network(
                 "https://play-lh.googleusercontent.com/aA2iky4PH0REWCcPs9Qym2X7e9koaa1RtY-nKkXQsDVU6Ph25_9GkvVuyhS72bwKhN1P",

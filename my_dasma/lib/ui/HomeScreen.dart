@@ -7,11 +7,11 @@ import 'package:my_dasma/extras/constants/AppImages.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:my_dasma/ui/CategoryDetailListPage.dart';
 import 'package:provider/provider.dart';
-import 'home_screen.dart';
+import 'UserDashboard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-class PageStructure extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
 
 
   final List<CategoryList> categoryList= <CategoryList>[

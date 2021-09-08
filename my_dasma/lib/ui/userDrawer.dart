@@ -3,17 +3,19 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-//import 'package:my_dasma/pages/home_screen.dart';
+import 'package:my_dasma/extras/constants/AppColor.dart';
+import 'package:my_dasma/ui/ProfilePage.dart';
+//import 'package:my_dasma/pages/UserDashboard.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'home_screen.dart';
+import 'UserDashboard.dart';
 
-class MenuScreen extends StatefulWidget {
+class UserDrawer extends StatefulWidget {
   final List<MenuItem> mainMenu;
   final Function(int)? callback;
   final int? current;
 
-  MenuScreen(
+  UserDrawer(
     this.mainMenu, {
     Key? key,
     this.callback,
@@ -21,10 +23,10 @@ class MenuScreen extends StatefulWidget {
   });
 
   @override
-  _MenuScreenState createState() => _MenuScreenState();
+  _UserDrawerState createState() => _UserDrawerState();
 }
 
-class _MenuScreenState extends State<MenuScreen> {
+class _UserDrawerState extends State<UserDrawer> {
   final widthBox = SizedBox(
     width: 16.0,
   );
@@ -45,7 +47,7 @@ class _MenuScreenState extends State<MenuScreen> {
           gradient: LinearGradient(
             colors: [
               // Theme.of(context).primaryColor,
-              Theme.of(context).primaryColor,
+             colorPurple,
               Colors.white.withOpacity(0.99),
             ],
             begin: Alignment.topLeft,
@@ -61,14 +63,21 @@ class _MenuScreenState extends State<MenuScreen> {
               SizedBox(
                 height: 30.h,
               ),
-              Padding(
-                padding:  EdgeInsets.only(bottom: 24.h, left: 24.h, right: 24.h),
-                child: Container(
-                  width: 80.h,
-                  height: 80.h,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    shape: BoxShape.circle,
+              GestureDetector(
+                onTap: ()
+                {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ProfilePage()));
+                },
+                child: Padding(
+                  padding:  EdgeInsets.only(bottom: 24.h, left: 24.h, right: 24.h),
+                  child: Container(
+                    width: 80.h,
+                    height: 80.h,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      shape: BoxShape.circle,
+                    ),
                   ),
                 ),
               ),

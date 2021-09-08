@@ -2,21 +2,24 @@ import 'package:easy_localization/easy_localization.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:my_dasma/extras/constants/Constant.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:my_dasma/ui/AboutUs.dart';
 import 'package:my_dasma/ui/BlogScreen.dart';
+import 'package:my_dasma/ui/BusinessHomeScreen.dart';
 import 'package:my_dasma/ui/ContactUs.dart';
 import 'package:my_dasma/ui/MediaPlayScreen.dart';
 import 'package:my_dasma/ui/MediaScreen.dart';
 import 'package:my_dasma/ui/PrivacyPolicy.dart';
-import 'package:my_dasma/ui/page_structure.dart';
+import 'package:my_dasma/ui/HomeScreen.dart';
+import 'package:my_dasma/ui/businessDrawer.dart';
 import 'package:provider/provider.dart';
 
-import 'menu_page.dart';
 
-class HomeScreen extends StatefulWidget {
+
+class BusinessDashboard extends StatefulWidget {
   static List<MenuItem> mainMenu = [
     MenuItem(tr(txtHome), Icons.payment, 0),
     MenuItem(tr(txtMedia), Icons.card_giftcard, 1),
@@ -27,10 +30,10 @@ class HomeScreen extends StatefulWidget {
   ];
 
   @override
-  _HomeScreenState createState() => new _HomeScreenState();
+  _BusinessDashboardState createState() => new _BusinessDashboardState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _BusinessDashboardState extends State<BusinessDashboard> {
   final _drawerController = ZoomDrawerController();
 
   int _currentPage = 0;
@@ -39,37 +42,40 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final isRtl = context.locale.languageCode == "ar";
 
-    return ZoomDrawer(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: ZoomDrawer(
 
-      controller: _drawerController,
-      style: DrawerStyle.Style1,
+        controller: _drawerController,
+        style: DrawerStyle.Style1,
 
-      menuScreen: MenuScreen(
-        HomeScreen.mainMenu,
-        callback: _updatePage,
-        current: _currentPage,
-      ),
-       mainScreen: MainScreen(index: getPage(),),
-      // mainScreen: MainScreen(),
-      borderRadius: 24.0,
+        menuScreen: BusinessDrawer(
+          BusinessDashboard.mainMenu,
+          callback: _updatePage,
+          current: _currentPage,
+        ),
+         mainScreen: MainScreen(index: getPage(),),
+        // mainScreen: MainScreen(),
+        borderRadius: 24.0,
 //      showShadow: true,
-      angle: 0.0,
-      mainScreenScale: .1,
-      slideWidth: MediaQuery.of(context).size.width * (isRtl ? .55 : 0.65),
-      isRtl: isRtl,
-      clipMainScreen: false,
-      // openCurve: Curves.fastOutSlowIn,
-      // closeCurve: Curves.bounceIn,
+        angle: 0.0,
+        mainScreenScale: .1,
+        slideWidth: MediaQuery.of(context).size.width * (isRtl ? .55 : 0.65),
+        isRtl: isRtl,
+        clipMainScreen: false,
+        // openCurve: Curves.fastOutSlowIn,
+        // closeCurve: Curves.bounceIn,
+      ),
     );
   }
 
   void _updatePage(index) {
-    Provider.of<MenuProvider>(context, listen: false).updateCurrentPage(index);
+    Provider.of<BusinessMenuProvider>(context, listen: false).updateCurrentPage(index);
     _drawerController.toggle!();
   }
 
   int getPage() {
-    return Provider.of<MenuProvider>(context, listen: true)._currentPage;
+    return Provider.of<BusinessMenuProvider>(context, listen: true)._currentPage;
 
   }
 }
@@ -90,7 +96,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-      print("current index::"+Provider.of<MenuProvider>(context, listen: false)._currentPage.toString());
+      print("current index::"+Provider.of<BusinessMenuProvider>(context, listen: false)._currentPage.toString());
     final rtl = context.locale.languageCode == "ar";
     return ValueListenableBuilder<DrawerState>(
       valueListenable: ZoomDrawer.of(context)!.stateNotifier!,
@@ -115,7 +121,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget setScreen(int? index)
   {
     if(index==0) {
-      return PageStructure();
+      return BusinessHomeScreen();
       // return MediaVideoListPage();
     }
 
@@ -140,12 +146,12 @@ class _MainScreenState extends State<MainScreen> {
       return PrivacyPolicy();
     }
     else {
-      return PageStructure();
+      return BusinessHomeScreen();
     }
   }
 }
 
-class MenuProvider extends ChangeNotifier {
+class BusinessMenuProvider extends ChangeNotifier {
   int _currentPage = 0;
 
   int get currentPage => _currentPage;

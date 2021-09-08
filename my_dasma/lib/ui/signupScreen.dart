@@ -570,6 +570,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
             onChanged: (val) {
            //   loginProviderWatch.setUserType(val.toString());
               signupProviderWatch.setBusinessType(val.toString());
+              _typeBControllerB!.text=val.toString();
               // setState(
               //       () {
               //     _dropDownValue = val.toString();

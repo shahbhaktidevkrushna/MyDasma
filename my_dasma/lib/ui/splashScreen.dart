@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:my_dasma/extras/constants/SharePrefConstant.dart';
+import 'package:my_dasma/ui/BusinessDashboard.dart';
 import 'package:my_dasma/ui/ListViewPage.dart';
 import 'package:my_dasma/ui/SigninScreen.dart';
-import 'package:my_dasma/ui/home_screen.dart';
+import 'package:my_dasma/ui/UserDashboard.dart';
 
 class SplashScreen extends StatefulWidget {
 
@@ -30,8 +31,16 @@ class _SplashScreenState extends State<SplashScreen> {
         () {
 
       if(storage.read(isLogin) != null && storage.read(isLogin)) {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => HomeScreen()));
+        if(storage.read(loginType)=="User")
+          {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => UserDashboardScreen()));
+          }
+        else{
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => BusinessDashboard()));
+        }
+
       }
 
 

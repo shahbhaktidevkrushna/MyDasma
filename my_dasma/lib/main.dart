@@ -6,7 +6,8 @@ import 'package:my_dasma/providers/CategoryDetailProvider.dart';
 
 import 'package:my_dasma/providers/loginProvider.dart';
 import 'package:my_dasma/providers/signupProvider.dart';
-import 'package:my_dasma/ui/home_screen.dart';
+import 'package:my_dasma/ui/BusinessDashboard.dart';
+import 'package:my_dasma/ui/UserDashboard.dart';
 
 import 'package:my_dasma/ui/splashScreen.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,7 @@ void main() async{
         ChangeNotifierProvider(create: (_) =>  SignupProvider()),
         ChangeNotifierProvider(create: (_) =>  MenuProvider()),
         ChangeNotifierProvider(create: (_) =>  CategoryDetailProvider()),
+        ChangeNotifierProvider(create: (_) =>  BusinessMenuProvider()),
 
       ],child:  MyApp()),
 
@@ -59,14 +61,17 @@ class MyApp extends StatelessWidget {
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
-        theme:
-        ThemeData(
-          //primarySwatch: MaterialColor(0xff6E0CDB, { 500: Color(0xff6E0CDB)}),
-         // primaryColor: Color(0xff6E0CDB)
-          //primarySwatch: Color(0xff6E0CDB)
-          //primarySwatch: Colors.lightBlue,
-            primarySwatch: Colors.deepPurple
-        ),
+        theme: Theme.of(context).copyWith(
+        appBarTheme: Theme.of(context)
+        .appBarTheme
+        .copyWith(brightness: Brightness.light),),
+        // ThemeData(
+        //   //primarySwatch: MaterialColor(0xff6E0CDB, { 500: Color(0xff6E0CDB)}),
+        //  // primaryColor: Color(0xff6E0CDB)
+        //   //primarySwatch: Color(0xff6E0CDB)
+        //   //primarySwatch: Colors.lightBlue,
+        //     primarySwatch: Colors.deepPurple
+        // ),
         builder: (context, widget) {
           return MediaQuery(
             //Setting font does not change with system font size
