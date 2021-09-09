@@ -12,6 +12,7 @@ import 'package:my_dasma/ui/BusinessHomeScreen.dart';
 import 'package:my_dasma/ui/ContactUs.dart';
 import 'package:my_dasma/ui/MediaPlayScreen.dart';
 import 'package:my_dasma/ui/MediaScreen.dart';
+import 'package:my_dasma/ui/MediaSelection.dart';
 import 'package:my_dasma/ui/PrivacyPolicy.dart';
 import 'package:my_dasma/ui/HomeScreen.dart';
 import 'package:my_dasma/ui/businessDrawer.dart';
@@ -127,7 +128,7 @@ class _MainScreenState extends State<MainScreen> {
 
     else if(index==1)
     {
-      return MediaScreen();
+      return MediaSelection();
     }
     else if(index==2)
     {
