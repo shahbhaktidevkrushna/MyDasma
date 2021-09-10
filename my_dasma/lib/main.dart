@@ -32,10 +32,7 @@ void main() async{
 
   ));
 
-  // MultiProvider(providers: [
-  //   ChangeNotifierProvider(create: (_) =>  LoginProvider()),
-  //   ChangeNotifierProvider(create: (_) =>  SignupProvider()),
-  // ],child:  MyApp())
+
 }
 
 class MyApp extends StatelessWidget {
@@ -54,10 +51,7 @@ class MyApp extends StatelessWidget {
       builder: () => MaterialApp(
         title: "SplashScreen",
        home: SplashScreen(),
-        // home: ChangeNotifierProvider(
-        //   create: (_) => MenuProvider(),
-        //   child: HomeScreen(),
-        // ),
+
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
@@ -65,13 +59,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: Theme.of(context)
         .appBarTheme
         .copyWith(brightness: Brightness.light),),
-        // ThemeData(
-        //   //primarySwatch: MaterialColor(0xff6E0CDB, { 500: Color(0xff6E0CDB)}),
-        //  // primaryColor: Color(0xff6E0CDB)
-        //   //primarySwatch: Color(0xff6E0CDB)
-        //   //primarySwatch: Colors.lightBlue,
-        //     primarySwatch: Colors.deepPurple
-        // ),
+
         builder: (context, widget) {
           return MediaQuery(
             //Setting font does not change with system font size

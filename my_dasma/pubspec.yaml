@@ -59,9 +59,6 @@ dependencies:
   image_picker: ^0.8.4
   numberpicker: ^2.0.1
   video_player: ^2.1.15
-  path_provider: ^2.0.2
-  export_video_frame: ^0.0.6
-  video_compress: ^3.1.0
 
 
 dev_dependencies:

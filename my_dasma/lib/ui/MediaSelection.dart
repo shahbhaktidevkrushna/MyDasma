@@ -9,6 +9,7 @@ import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:io';
 import 'package:video_player/video_player.dart';
+import 'package:video_thumbnail/video_thumbnail.dart';
 
 
 class MediaSelection extends StatefulWidget {
@@ -19,28 +20,19 @@ class MediaSelection extends StatefulWidget {
 }
 
 class _MediaSelectionState extends State<MediaSelection> {
-  // for pick images
+
   List<XFile>? images = [];
   List<File>? imageFileArray = [];
   var _image;
   var imagePicker;
 
-  // for pick videos
-  List<XFile>? videos = [];
-  List<File>? videoFileArray = [];
-  var _video;
+
   var videoPicker;
+  File? _video;
+  Uint8List? video;
+  List<Uint8List> videoList=<Uint8List>[];
+  VideoPlayerController? _videoPlayerController;
 
-  late List uint8listImage = [];
-
-  //String? filePath;
-  late File file2;
-
-  late VideoPlayerController _videoPlayerController;
-
-  int _counter = 0;
-  String? thumbNailImage;
-  late VideoPlayerController _controller;
 
 
   @override
@@ -51,15 +43,7 @@ class _MediaSelectionState extends State<MediaSelection> {
     videoPicker = new ImagePicker();
   }
 
-  /*Future<bool> _promptPermissionSetting() async {
-    if (Platform.isIOS &&
-        await Permission.storage.request().isGranted &&
-        await Permission.photos.request().isGranted ||
-        Platform.isAndroid && await Permission.storage.request().isGranted) {
-      return true;
-    }
-    return false;
-  }*/
+
 
   @override
   Widget build(BuildContext context) {
@@ -68,176 +52,254 @@ class _MediaSelectionState extends State<MediaSelection> {
       appBar: CommonAppBar(
         appBar: AppBar(),
         AppBarBackground: blackDark,
+        isLeading: true,
+        title: "Media Selection",
+        textColor: Colors.white,
       ),
-      body: Container(
-        margin: EdgeInsets.only(left: 16.0.w, top: 8.0.h, right: 16.0.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              txtPhotosOfTheRest,
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(primary: blackDark),
-                icon: Icon(
-                  Icons.camera_alt,
-                  size: 20.0.r,
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.only(left: 16.0.w, top: 8.0.h, right: 16.0.w),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                txtPhotosOfTheRest,
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
                 ),
-                onPressed: () async {
-                  var source = ImageSource.gallery;
-                  images = await imagePicker.pickMultiImage();
-
-                  setState(() {
-                    //_image = File(images!.path);
-                    // fileArray!.clear();
-                    for (int i = 0; i < images!.length; i++) {
-                      _image = File(images![i].path);
-                      imageFileArray!.add(_image);
-                    }
-                  });
-                },
-                label: Text(txtSelectPhotos,
-                    style: TextStyle(color: Colors.white, fontSize: 16.0))),
-            Expanded(
-              child: new GridView.count(
-                crossAxisCount: 3,
-                children: imageFileArray != null
-                    ? new List<Widget>.generate(imageFileArray!.length,
-                        (index) {
-                        return InkWell(
-                          onTap: () {},
-                          child: Container(
-                           // padding: EdgeInsets.only(top: 12, right: 12),
-                            child: Stack(
-                              fit: StackFit.expand,
-                              children: [
-                                Container(
-                                  child: new GridTile(
-                                    child: new Card(
-                                        color: Colors.grey.shade200,
-                                        child: Image.file(
-                                          imageFileArray![index],
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-
-                                Positioned(
-                                  right: 0,
-                                  top: 0,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(0.6),
-                                      /*border: Border(
-                                      top: BorderSide(width: 1,  color: Colors.black.withOpacity(0.7)),
-                                      left: BorderSide(width: 1, color: Colors.black.withOpacity(0.7)),
-                                      right: BorderSide(width: 1, color: Colors.black.withOpacity(0.7)),
-                                      bottom: BorderSide(width: 1, color: Colors.black.withOpacity(0.7)),
-                                    ),*/
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Icon(
-                                      Icons.close,
-                                      color: Colors.black.withOpacity(0.6),
-
-                                      size: 20,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        );
-                      })
-                    : new List<Widget>.generate(1, (index) {
-                        return new GridTile(
-                          child: new Card(
-                              color: Colors.grey.shade200,
-                              child: new Center(
-                                //child: new Text('tile $index'),
-                                child: Container(
-                                  child: Text("No image selected"),
-                                ),
-                              )),
-                        );
-                      }),
               ),
-            ),
-            SizedBox(
-              height: 30.0.h,
-            ),
-            Text(
-              txtRestaurantVideos,
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
+              SizedBox(
+                height: 5.h,
               ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(primary: blackDark),
-                icon: Icon(
-                  Icons.camera_alt,
-                  size: 20.0.r,
+              ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(primary: blackDark),
+                  icon: Icon(
+                    Icons.camera_alt,
+                    size: 20.0.r,
+                  ),
+                  onPressed: () async {
+                    var source = ImageSource.gallery;
+                    images = await imagePicker.pickMultiImage();
+
+                    setState(() {
+                      //_image = File(images!.path);
+                      // fileArray!.clear();
+                      for (int i = 0; i < images!.length; i++) {
+                        _image = File(images![i].path);
+                        imageFileArray!.add(_image);
+                      }
+                    });
+                  },
+                  label: Text(txtSelectPhotos,
+                      style: TextStyle(color: Colors.white, fontSize: 16.0))),
+              imageFileArray != null && imageFileArray!.length >0 ? SizedBox(
+                height: 20.0.h,
+              ):SizedBox(height: 5.h,),
+           imageFileArray != null && imageFileArray!.length >0 ? GridView.builder(
+                itemCount: imageFileArray!.length,
+             physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //  crossAxisCount: 3,
+                  crossAxisCount:  3,
+                  crossAxisSpacing: 8,
+                  mainAxisSpacing: 8,
+
                 ),
-                onPressed: () async {
-                  var source = ImageSource.gallery;
-                  //_pickVideo();
-                  XFile? videos =
-                      await videoPicker.pickVideo(source: ImageSource.gallery);
+                itemBuilder: (BuildContext context, int index){
+                  return Stack(
+                    clipBehavior: Clip.none,
+                    children: [
 
-                  setState(() async {
-                    _video = File(videos!.path);
-                    print("video path:" + _video.toString());
-                  });
+                      Container(
+                        child: Container(
+                            padding:  EdgeInsets.all(5.0),
+                            height: 250.h, width: 250.h,color: Colors.white,
+                            child: Image.file(imageFileArray![index],fit: BoxFit.fill,)),
+                      ),
+                      Positioned(
+                        top:-15.0,
+                        right:-13.0,
+                        child: new IconButton(
+                            icon: Icon(Icons.cancel,color: Colors.black,size: 22,),
+                            onPressed: () {
+
+                              setState(() {
+
+                                imageFileArray!.removeAt(index);
+                                print("videolist length:"+imageFileArray!.length.toString());
+                              });
+
+                            }),
+                      ),
+
+                    ],
+                  );
                 },
-                label: Text(txtSelectVideos,
-                    style: TextStyle(color: Colors.white, fontSize: 16.0))),
-            Expanded(
-              child: new GridView.count(
-                crossAxisCount: 3,
-                children: uint8listImage != null
-                    ? new List<Widget>.generate(uint8listImage.length, (index) {
-                        return InkWell(
-                          onTap: () {},
-                          child: new GridTile(
-                            child: new Card(
-                                color: Colors.grey.shade200,
-                                //child: Image.file(videoFileArray![index], fit: BoxFit.fill,)
-                                child: Image.memory(
-                                  uint8listImage[index],
-                                  fit: BoxFit.fill,
-                                )),
-                          ),
-                        );
-                      })
-                    : new List<Widget>.generate(1, (index) {
-                        return new GridTile(
-                          child: new Card(
-                              color: Colors.grey.shade200,
-                              child: new Center(
-                                //child: new Text('tile $index'),
-                                child: Container(
-                                  child: Text("No video selected"),
-                                ),
-                              )),
-                        );
-                      }),
+              ):Container(),
+              SizedBox(
+                height: 20.0.h,
               ),
-            ),
-          ],
+              Text(
+                txtRestaurantVideos,
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(primary: blackDark),
+                  icon: Icon(
+                    Icons.camera_alt,
+                    size: 20.0.r,
+                  ),
+                  onPressed: () async {
+                    _pickVideo();
+                  },
+                  label: Text(txtSelectVideos,
+                      style: TextStyle(color: Colors.white, fontSize: 16.0))),
+              videoList != null && videoList.length >0 ? SizedBox(
+                height: 20.0.h,
+              ):SizedBox(height: 5.h,),
+              videoList!=null && videoList.length > 0 ?GridView.builder(
+                itemCount: videoList.length,
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //  crossAxisCount: 3,
+                  crossAxisCount:  3,
+                  crossAxisSpacing: 8,
+                  mainAxisSpacing: 8,
+
+                ),
+                itemBuilder: (BuildContext context, int index){
+                  return Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+
+                      Container(
+                        child: Container(
+                            padding:  EdgeInsets.all(5.0),
+                            height: 250.h, width: 250.h,color: Colors.white,
+                            child: Image.memory(videoList[index],fit: BoxFit.fitHeight,)),
+                      ),
+                      Positioned(
+                        top:-15.0,
+                        right:-13.0,
+                        child: new IconButton(
+                            icon: Icon(Icons.cancel,color: Colors.black,size: 22,),
+                            onPressed: () {
+
+                              setState(() {
+
+                                videoList.removeAt(index);
+                                print("videolist length:"+videoList.length.toString());
+                              });
+
+                            }),
+                      ),
+                      Positioned(
+                        bottom: 0, right: 0,
+                        top: 0, left: 0,
+                        //give the values according to your requirement
+                        child: Icon(Icons.play_arrow_rounded, size: 40.r, color: Colors.black,),
+                        /* child: Image.asset('assets/play_circle_img2.png',
+                                  width: 60.w, height: 60.h),*/
+                      ),
+                    ],
+                  );
+                },
+              ):Container(),
+              SizedBox(
+                height: 10.h,
+              ),
+              Text(
+                "On Youtube Video At Restaurants",
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Container(
+                height: 37.h,
+                child: TextField(
+                  decoration: new InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black, width: 5.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    //hintText: 'Mobile Number',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30.h,
+              ),
+              Align(
+                alignment: Alignment. topRight,
+                child: Container(
+                  height: 60.0,
+                  width: 60.0,
+                  child: FittedBox(
+                    child: FloatingActionButton(onPressed: () {},
+                      foregroundColor: Colors.white,
+                         backgroundColor: Colors.black,
+                      tooltip: 'Open New Page',
+                           child: new Icon(Icons.navigate_next,size: 30,),),
+                  ),
+                ),
+              ),
+
+              // Align(
+              //   alignment: Alignment. center,
+              //   child: FloatingActionButton(
+              //
+              //     foregroundColor: Colors.white,
+              //     backgroundColor: Colors.black,
+              //     onPressed: (){
+              //       // Navigator.of(context).push(MaterialPageRoute(
+              //       //     builder: (context) => MediaSelection()));
+              //     },
+              //     tooltip: 'Open New Page',
+              //     child: new Icon(Icons.navigate_next),
+              //   ),
+              // ),
+            ],
+          ),
         ),
       ),
     ));
+  }
+
+  _pickVideo() async {
+    PickedFile? pickedFile = await videoPicker.getVideo(source: ImageSource.gallery);
+
+    _video = File(pickedFile!.path);
+    video = await VideoThumbnail.thumbnailData(
+      video: pickedFile.path,
+      imageFormat: ImageFormat.JPEG,
+      maxWidth: 200,
+      maxHeight: 200,// specify the width of the thumbnail, let the height auto-scaled to keep the source aspect ratio
+      quality: 40,
+    );
+
+    videoList.add(video!);
+    _videoPlayerController = VideoPlayerController.file(_video!)
+      ..initialize().then((_) {
+        setState(() {});
+
+      });
+
+
   }
 }
