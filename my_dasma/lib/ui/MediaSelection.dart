@@ -10,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:io';
 import 'package:video_player/video_player.dart';
 
+
 class MediaSelection extends StatefulWidget {
   const MediaSelection({Key? key}) : super(key: key);
 
@@ -40,6 +41,7 @@ class _MediaSelectionState extends State<MediaSelection> {
   int _counter = 0;
   String? thumbNailImage;
   late VideoPlayerController _controller;
+
 
   @override
   void initState() {
