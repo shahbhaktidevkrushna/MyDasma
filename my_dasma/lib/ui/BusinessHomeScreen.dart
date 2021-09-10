@@ -8,7 +8,9 @@ import 'package:my_dasma/extras/commonWidgets/CommonBusinessButton.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/AppImages.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
+import 'package:my_dasma/ui/AddRestaurant1.dart';
 import 'package:my_dasma/ui/CategoryDetailListPage.dart';
+import 'package:my_dasma/ui/ViewDetailScreen.dart';
 import 'package:provider/provider.dart';
 import 'UserDashboard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -79,7 +81,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
           ),
         ),
         bottomNavigationBar: Padding(
-          padding:  EdgeInsets.only(right: 25.w,left: 25.w,bottom: 10.h),
+          padding:  EdgeInsets.only(right: 25.w,left: 25.w,bottom: 10.h,top: 10.h),
           child: Container(
             height: 30.h,
            // width: MediaQuery.of(context).size.width/1.2,
@@ -87,6 +89,11 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
               context: context,
               lableText: "Add Restaurnat",
               ButtonBackground: Colors.black,
+              onTap: ()
+              {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => AddRestaurantScreen1()));
+              },
             )
           ),
         ) ,
@@ -156,6 +163,10 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
                     height: 25.h,
 
                     child:CommonElevatedButton(
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ViewDetailScreen()));
+                      },
                       context: context,
                       lableText: "View",
                       ButtonBackground: Colors.black,
