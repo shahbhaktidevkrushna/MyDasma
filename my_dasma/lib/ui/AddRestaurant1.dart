@@ -38,10 +38,10 @@ class _AddRestaurantScreen1State extends State<AddRestaurantScreen1> {
         backgroundColor: Colors.white,
         appBar: CommonAppBar(
           appBar: AppBar(),
-          title: "Add Restaurants",
+          title: txtAddRestaurant,
           AppBarBackground:Colors.black,
           isLeading: true,
-          // isDrawer: true,
+
           textColor: Colors.white,
 
         ),
@@ -53,9 +53,7 @@ class _AddRestaurantScreen1State extends State<AddRestaurantScreen1> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("General Data",style: TextStyle(fontSize: 18.sp,color: Colors.grey,fontWeight: FontWeight.w500),),
-                    SizedBox(height: 8.h,),
-                    Text("Select categories",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text(txtSelectCategory,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
                  InputDecorator(
                   decoration: InputDecoration(
@@ -64,13 +62,14 @@ class _AddRestaurantScreen1State extends State<AddRestaurantScreen1> {
                   ),
                     child:DropdownButtonHideUnderline(
                       child: DropdownButton<String>(
-                        value: "Male",
+                        value: "Modern banquets",
+
                         isDense: true,
                         isExpanded: true,
                         items: [
-                          DropdownMenuItem(child: Text("Select Gender"), value: ""),
-                          DropdownMenuItem(child: Text("Male"), value: "Male"),
-                          DropdownMenuItem(child: Text("Female"), value: "Female"),
+                          DropdownMenuItem(child: Text("Select Category",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.normal),), value: ""),
+                          DropdownMenuItem(child: Text("Modern banquets",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.normal)), value: "Modern banquets"),
+                          DropdownMenuItem(child: Text("Extra banquets",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.normal)), value: "Extra banquets"),
                         ],
                         onChanged: (newValue) {
                           setState(() {
@@ -79,7 +78,7 @@ class _AddRestaurantScreen1State extends State<AddRestaurantScreen1> {
                       ),
                     ),) ,
                     SizedBox(height: 8.h,),
-                    Text("Select services",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text(txtSelectService,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
                     InputDecorator(
                       decoration: InputDecoration(
@@ -88,13 +87,13 @@ class _AddRestaurantScreen1State extends State<AddRestaurantScreen1> {
                       ),
                       child:DropdownButtonHideUnderline(
                         child: DropdownButton<String>(
-                          value: "Male",
+                          value: "Guests(banquet)",
                           isDense: true,
                           isExpanded: true,
                           items: [
-                            DropdownMenuItem(child: Text("Select Gender"), value: ""),
-                            DropdownMenuItem(child: Text("Male"), value: "Male"),
-                            DropdownMenuItem(child: Text("Female"), value: "Female"),
+                            DropdownMenuItem(child: Text("Select service"), value: ""),
+                            DropdownMenuItem(child: Text("Guests(banquet)"), value: "Guests(banquet)"),
+                            DropdownMenuItem(child: Text("Dinner"), value: "Dinner"),
                           ],
                           onChanged: (newValue) {
                             setState(() {
@@ -103,7 +102,7 @@ class _AddRestaurantScreen1State extends State<AddRestaurantScreen1> {
                         ),
                       ),),
                     SizedBox(height: 8.h,),
-                    Text("Feactures",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text(txtFeactures,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     ListView.builder(
                       itemCount: 3,
 
@@ -117,7 +116,11 @@ class _AddRestaurantScreen1State extends State<AddRestaurantScreen1> {
                               controlAffinity: ListTileControlAffinity.leading,
                               contentPadding: EdgeInsets.all(0),
                               activeColor: Colors.black,
-                              title: const Text('Car Parking'),
+                              title:  Text('Car Parking',style:TextStyle(
+                                  fontSize: 14.sp,
+
+                                  color: Colors.black
+                              ),),
                               value: this.valuefirst,
                               onChanged: (value) {
                                 setState(() {
@@ -130,9 +133,9 @@ class _AddRestaurantScreen1State extends State<AddRestaurantScreen1> {
                       },
                     ),
                     SizedBox(height: 12.h,),
-                    Text("Location",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text(txtLocation,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 12.h,),
-                    CommonBusinessTextField(context: context, hintText: "Location", maxLine: 2),
+                    CommonBusinessTextField(context: context, hintText: txtLocation, maxLine: 2),
 
                     SizedBox(height: 30.h,),
 
@@ -155,53 +158,7 @@ class _AddRestaurantScreen1State extends State<AddRestaurantScreen1> {
                         ),
                       ),
                     ),
-                    // Align(
-                    //   alignment: Alignment. topRight,
-                    //   child: CommonElevatedButton(
-                    //     lableText: "Next",
-                    //     context: context,
-                    //     ButtonBackground: Colors.black,
-                    //     onTap: ()
-                    //     {
-                    //       Navigator.of(context).push(MaterialPageRoute(
-                    //           builder: (context) => MediaSelection()));
-                    //     },
-                    //   ),
-                    // )
 
-                    // Text("Minimum Allowed People",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
-                    // SizedBox(height: 8.h,),
-                    // Container(
-                    //   height: 37.h,
-                    //   child: TextField(
-                    //     decoration: new InputDecoration(
-                    //       focusedBorder: OutlineInputBorder(
-                    //         borderSide: BorderSide(color: Colors.greenAccent, width: 5.0),
-                    //       ),
-                    //       enabledBorder: OutlineInputBorder(
-                    //         borderSide: BorderSide(color: Colors.grey, width: 1.0),
-                    //       ),
-                    //       //hintText: 'Mobile Number',
-                    //     ),
-                    //   ),
-                    // ),
-                    // SizedBox(height: 8.h,),
-                    // Text("Maximum Allowed People",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
-                    // SizedBox(height: 8.h,),
-                    // Container(
-                    //   height: 37.h,
-                    //   child: TextField(
-                    //     decoration: new InputDecoration(
-                    //       focusedBorder: OutlineInputBorder(
-                    //         borderSide: BorderSide(color: Colors.greenAccent, width: 5.0),
-                    //       ),
-                    //       enabledBorder: OutlineInputBorder(
-                    //         borderSide: BorderSide(color: Colors.grey, width: 1.0),
-                    //       ),
-                    //       //hintText: 'Mobile Number',
-                    //     ),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),

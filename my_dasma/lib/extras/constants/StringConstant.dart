@@ -87,6 +87,31 @@ const txtSelectPhotos = "Select Photos";
 const txtSelectVideos = "Select videos";
 const txtSend = "Send";
 const txtCancel = "Cancel";
+const txtListOfRestaurant = "List Of Restaurants";
+const txtAddRestaurant = "Add Restaurant";
+const txtRestaurantName = "Name of Restaurant";
+const txtCreatedDate = "Created : ";
+const txtModifiedDate = "Modified : ";
+const txtView = "View";
+const txtEdit = "Edit";
+const txtLookAtRestaurant = "Look At The Restaurant";
+const txtDetailsOfRestaurant = "Details of the Restaurant";
+const txtMinimumAllowPeople = "Minimum allowed people";
+const txtMaximumAllowPeople = "Maximum allowed people";
+const txtCreated = "Created";
+const txtWidth = "Width";
+const txtLength = "Length";
+const txtState = "State";
+const txtSelectCategory = "Select categories";
+const txtSelectService = "Select services";
+const txtFeactures = "Feactures";
+const txtMediaSelection = "Media Selection";
+const txtYoutubeVideoLink = "On Youtube Video At Restaurants";
+const txtVideoLink = "Video Link";
+const txtOtherRestaurantDetail = "Other Restaurant Detail";
+const txtRestaurantAddress = "Address Of Restaurant";
+const txtAddMenu = "Add Menu";
+
 
 
 // Validations msg
@@ -125,6 +150,7 @@ const catDancer = "DANCER";
 // Static content (remove after api call)
 
 const resDescription = "Eclipse Resort is one of the largest resorts in Albania and the region. With many years of experience and well-qualified staff, Eclipse Resort offers high quality service and warmth to all potential guests. The space and staff of the hotel provide you with unprecedented comfort and convenience elsewhere. Any party (merry / wedding,…) can only make sense at the Eclipse Complex. The resort also features summer and winter swimming pools. And, above all, Eclipse Resort is the most beautiful and amazing place possible for your wedding, because the complex has 3 brilliant wedding halls, with capacities from 150, 250 and 450 people. Meanwhile, if you have dreamed of organizing a real wedding like in fairy tales, then such a thing you can make a reality quite easily through the online platform MyDasma.";
+const restaurantDetail = "Please note that all parts must be completed before your business becomes public. If you can not add all the details at once, be sure to press the Send button, or you will lose everything you have written / added. Video is optional.";
 
 
 

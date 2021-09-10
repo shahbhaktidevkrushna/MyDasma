@@ -53,7 +53,7 @@ class _MediaSelectionState extends State<MediaSelection> {
         appBar: AppBar(),
         AppBarBackground: blackDark,
         isLeading: true,
-        title: "Media Selection",
+        title: txtMediaSelection,
         textColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -213,13 +213,13 @@ class _MediaSelectionState extends State<MediaSelection> {
                 height: 10.h,
               ),
               Text(
-                "On Youtube Video At Restaurants",
+                  txtYoutubeVideoLink,
                 style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold)
               ),
               SizedBox(
                 height: 10.h,
               ),
-              CommonBusinessTextField(context: context, hintText: "Video Link", maxLine: 2),
+              CommonBusinessTextField(context: context, hintText: txtVideoLink, maxLine: 2),
               SizedBox(
                 height: 30.h,
               ),
@@ -241,20 +241,7 @@ class _MediaSelectionState extends State<MediaSelection> {
                 ),
               ),
 
-              // Align(
-              //   alignment: Alignment. center,
-              //   child: FloatingActionButton(
-              //
-              //     foregroundColor: Colors.white,
-              //     backgroundColor: Colors.black,
-              //     onPressed: (){
-              //       // Navigator.of(context).push(MaterialPageRoute(
-              //       //     builder: (context) => MediaSelection()));
-              //     },
-              //     tooltip: 'Open New Page',
-              //     child: new Icon(Icons.navigate_next),
-              //   ),
-              // ),
+
             ],
           ),
         ),
