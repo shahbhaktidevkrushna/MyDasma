@@ -8,6 +8,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonBusinessButton.dart';
+import 'package:my_dasma/extras/commonWidgets/CommonBusinessTextField.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/AppImages.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
@@ -131,20 +132,8 @@ class _AddRestaurantScreen1State extends State<AddRestaurantScreen1> {
                     SizedBox(height: 12.h,),
                     Text("Location",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 12.h,),
-                   Container(
-                    height: 37.h,
-                    child: TextField(
-                      decoration: new InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.greenAccent, width: 5.0),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey, width: 1.0),
-                        ),
-                        //hintText: 'Mobile Number',
-                      ),
-                    ),
-                  ),
+                    CommonBusinessTextField(context: context, hintText: "Location", maxLine: 2),
+
                     SizedBox(height: 30.h,),
 
                     Align(
