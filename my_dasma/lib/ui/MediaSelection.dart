@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
+import 'package:my_dasma/extras/commonWidgets/CommonBusinessTextField.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_dasma/ui/AddRestaurantMainDetail.dart';
 import 'dart:io';
 import 'package:video_player/video_player.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
@@ -63,10 +65,7 @@ class _MediaSelectionState extends State<MediaSelection> {
             children: [
               Text(
                 txtPhotosOfTheRest,
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold)
               ),
               SizedBox(
                 height: 5.h,
@@ -142,10 +141,7 @@ class _MediaSelectionState extends State<MediaSelection> {
               ),
               Text(
                 txtRestaurantVideos,
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold)
               ),
               SizedBox(
                 height: 5.h,
@@ -218,28 +214,12 @@ class _MediaSelectionState extends State<MediaSelection> {
               ),
               Text(
                 "On Youtube Video At Restaurants",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold)
               ),
               SizedBox(
                 height: 10.h,
               ),
-              Container(
-                height: 37.h,
-                child: TextField(
-                  decoration: new InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 5.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
-                    ),
-                    //hintText: 'Mobile Number',
-                  ),
-                ),
-              ),
+              CommonBusinessTextField(context: context, hintText: "Video Link", maxLine: 2),
               SizedBox(
                 height: 30.h,
               ),
@@ -249,7 +229,10 @@ class _MediaSelectionState extends State<MediaSelection> {
                   height: 60.0,
                   width: 60.0,
                   child: FittedBox(
-                    child: FloatingActionButton(onPressed: () {},
+                    child: FloatingActionButton(onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => AddRestaurantMainScreen()));
+                    },
                       foregroundColor: Colors.white,
                          backgroundColor: Colors.black,
                       tooltip: 'Open New Page',
