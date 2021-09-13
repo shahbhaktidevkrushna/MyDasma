@@ -87,6 +87,44 @@ const txtSelectPhotos = "Select Photos";
 const txtSelectVideos = "Select videos";
 const txtSend = "Send";
 const txtCancel = "Cancel";
+
+const txtListOfRestaurant = "List Of Restaurants";
+const txtAddRestaurant = "Add Restaurant";
+const txtRestaurantName = "Name of Restaurant";
+const txtCreatedDate = "Created : ";
+const txtModifiedDate = "Modified : ";
+const txtView = "View";
+const txtEdit = "Edit";
+const txtLookAtRestaurant = "Look At The Restaurant";
+const txtDetailsOfRestaurant = "Details of the Restaurant";
+const txtMinimumAllowPeople = "Minimum allowed people";
+const txtMaximumAllowPeople = "Maximum allowed people";
+const txtCreated = "Created";
+const txtWidth = "Width";
+const txtLength = "Length";
+const txtState = "State";
+const txtSelectCategory = "Select categories";
+const txtSelectService = "Select services";
+const txtFeactures = "Feactures";
+const txtMediaSelection = "Media Selection";
+const txtYoutubeVideoLink = "On Youtube Video At Restaurants";
+const txtVideoLink = "Video Link";
+const txtOtherRestaurantDetail = "Other Restaurant Detail";
+const txtRestaurantAddress = "Address Of Restaurant";
+const txtAddMenu = "Add Menu";
+const txtBirthDate = "Birthdate";
+const txtProfile = "Profile";
+const txtNotedetaillHere = "Please note your details below";
+const txtEditdetaillHere = "Please edit your details below";
+const txtCountry = "Country";
+const txtCity = "City";
+const txtEditProfile = "EditProfile";
+const txtSelectYourCountry = "Select your country";
+const txtSelectYourCity = "Select your city";
+const txtSave = "Save";
+
+
+
 const txtContent = "CONTENT";
 const txtBusinessHistory = "Business History";
 const txtAddress = "Address";
@@ -94,7 +132,7 @@ const txtHistory = "History";
 const txtPrice = "Price €";
 const txtNote = "Note:In the case of price you have two options:\n1.If you want your price to appear on your MyDasma profile, then enter it (eg if your price is 2000 euros, enter 2000).\n2. If you do not want your price to appear on your MyDasma profile, then do not post it, leave the space blank.";
 const txtHintPrice = "Enter Price(Euros)";
-
+const txtMessage = "Message";
 // Validations msg
 const errEmptyEmail = "Email is empty";
 const errNotValidEmail = "Email is not valid";

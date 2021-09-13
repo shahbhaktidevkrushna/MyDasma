@@ -29,12 +29,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
   var txtBirthdayHint = "Birthday";
   var picked;
   var strNoFileChose = "No File chosen";
+  var btnTextChooseFile = "Choose File";
   var selectedCountryUser = "Select your country";
   var selectedCityUser = "Select your city";
   var selectedCountryBusiness = "Select your country";
   var selectedCityBusiness = "Select your city";
   var btnTextReg = "Registration";
-  var btnTextChooseFile = "Choose File";
   var dateText="Birth date";
   List<Data> countryList =[];
   List<DataCity> cityList =[];

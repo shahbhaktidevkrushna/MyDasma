@@ -2,13 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_dasma/providers/CaregoryProvider.dart';
 import 'package:my_dasma/providers/CategoryDetailProvider.dart';
-
 import 'package:my_dasma/providers/loginProvider.dart';
 import 'package:my_dasma/providers/signupProvider.dart';
 import 'package:my_dasma/ui/BusinessDashboard.dart';
 import 'package:my_dasma/ui/UserDashboard.dart';
-
 import 'package:my_dasma/ui/splashScreen.dart';
 import 'package:provider/provider.dart';
 
@@ -27,11 +26,12 @@ void main() async{
         ChangeNotifierProvider(create: (_) =>  MenuProvider()),
         ChangeNotifierProvider(create: (_) =>  CategoryDetailProvider()),
         ChangeNotifierProvider(create: (_) =>  BusinessMenuProvider()),
+        ChangeNotifierProvider(create: (_) =>  CategoryProvider()),
 
-      ],child:  MyApp()),
+
+    ],child:  MyApp()),
 
   ));
-
 
 }
 

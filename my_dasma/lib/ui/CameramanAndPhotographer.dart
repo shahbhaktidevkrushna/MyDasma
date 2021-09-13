@@ -6,15 +6,14 @@ import 'package:my_dasma/extras/constants/Constant.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 
 
-
-class HairDresserContent extends StatefulWidget {
+class CameramanAndPhotographerContent extends StatefulWidget {
   @override
-  _HairDresserContentState createState() => _HairDresserContentState();
+  _CameramanAndPhotographerContentState createState() => _CameramanAndPhotographerContentState();
 }
 TextEditingController? _HistoryController = TextEditingController();
 TextEditingController? _AddressController = TextEditingController();
 
-class _HairDresserContentState extends State<HairDresserContent> with Constant{
+class _CameramanAndPhotographerContentState extends State<CameramanAndPhotographerContent> with Constant{
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,31 +32,6 @@ class _HairDresserContentState extends State<HairDresserContent> with Constant{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(txtPrice,style: TextStyle(fontSize: 16.sp,color:Colors.black,fontWeight: FontWeight.bold),),
-                  Text(txtNote, style: TextStyle(fontSize: 16.sp,color:Colors.black,fontWeight: FontWeight.bold),),
-                  SizedBox(height: 8.h,),
-                  Container(
-                    child: TextField(
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          color: Colors.black
-                      ),
-                      controller: _AddressController,
-                      maxLines: 1,
-                      decoration: new InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black, width: 5.0),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey, width: 1.0),
-                          ),
-                          hintText: txtHintPrice,
-                          isDense: true,
-                          hintStyle: TextStyle(color: Colors.grey,fontSize: 14.sp,fontWeight: FontWeight.normal)
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 12.h,),
                   Text(txtBusinessHistory,style: TextStyle(fontSize: 16.sp,color:Colors.black,fontWeight: FontWeight.bold),),
                   SizedBox(height: 8.h,),
                   Container(
@@ -105,7 +79,7 @@ class _HairDresserContentState extends State<HairDresserContent> with Constant{
                       ),
                     ),
                   ),
-                  SizedBox(height: 12.h,),
+                  SizedBox(height: 24.h,),
                   Align(
                       alignment: Alignment. topCenter,
                       child: Container(
