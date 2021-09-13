@@ -15,6 +15,7 @@ import 'package:my_dasma/ui/MediaScreen.dart';
 import 'package:my_dasma/ui/MediaSelection.dart';
 import 'package:my_dasma/ui/PrivacyPolicy.dart';
 import 'package:my_dasma/ui/HomeScreen.dart';
+import 'package:my_dasma/ui/SingerContentScreen.dart';
 import 'package:my_dasma/ui/businessDrawer.dart';
 import 'package:provider/provider.dart';
 

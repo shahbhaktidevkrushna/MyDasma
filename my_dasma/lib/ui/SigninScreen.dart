@@ -54,7 +54,6 @@ class _LoginPageState extends State<LoginPage> with Constant{
     SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
       loginProviderRead=context.read<LoginProvider>();
       loginProviderRead.userTypeValue=txtTypeMessage;
-
     });
   }
 

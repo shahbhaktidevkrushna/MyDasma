@@ -28,6 +28,11 @@ class _AddRestaurantMainScreenState extends State<AddRestaurantMainScreen> {
   bool? valuefirst = false;
   bool? valuesecond = false;
 
+  var restNameController = TextEditingController();
+  var minAllowedPController = TextEditingController();
+  var maxAllowedPController = TextEditingController();
+  var restDetailController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +43,7 @@ class _AddRestaurantMainScreenState extends State<AddRestaurantMainScreen> {
         backgroundColor: Colors.white,
         appBar: CommonAppBar(
           appBar: AppBar(),
-          title:txtOtherRestaurantDetail,
+          title: "Other Restaurant Detail",
           AppBarBackground:Colors.black,
           isLeading: true,
           // isDrawer: true,
@@ -53,19 +58,19 @@ class _AddRestaurantMainScreenState extends State<AddRestaurantMainScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(txtRestaurantName,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text("Name of restaurant",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
-                    CommonBusinessTextField(context: context, hintText: txtRestaurantName, maxLine:1 ),
+                    CommonBusinessTextField(context: context, hintText: "Name of restaurant", maxLine:1, controller: restNameController, ),
                     SizedBox(height: 8.h,),
-                    Text(txtMinimumAllowPeople,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text("Minimum allowed people",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
-                    CommonBusinessTextField(context: context, hintText: txtMinimumAllowPeople, maxLine:1 ),
+                    CommonBusinessTextField(context: context, hintText: "Minimum allowed people", maxLine:1, controller: minAllowedPController, ),
                     SizedBox(height: 8.h,),
-                    Text(txtMaximumAllowPeople,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text("Maximum allowed people",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
-                    CommonBusinessTextField(context: context, hintText: txtMaximumAllowPeople, maxLine:1 ),
+                    CommonBusinessTextField(context: context, hintText: "Maximum allowed people", maxLine:1, controller: maxAllowedPController, ),
                     SizedBox(height: 8.h,),
-                    Text(txtState,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text("State",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
                     InputDecorator(
                       decoration: InputDecoration(
@@ -89,21 +94,45 @@ class _AddRestaurantMainScreenState extends State<AddRestaurantMainScreen> {
                         ),
                       ),),
                     SizedBox(height: 8.h,),
-                    Text(txtDetailsOfRestaurant,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text("Detail of restaurant",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
-                    CommonBusinessTextField(context: context, hintText: txtDetailsOfRestaurant, maxLine:8 ),
+                    CommonBusinessTextField(context: context, hintText: "Maximum allowed people", maxLine:8, controller: restDetailController, ),
                     SizedBox(height: 8.h,),
 
-                    Text(txtRestaurantAddress,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 8.h,),
-                    CommonBusinessTextField(context: context, hintText: txtRestaurantAddress, maxLine:4 ),
-                    SizedBox(height: 8.h,),
-                    Center(child: CommonElevatedButton(context: context, lableText: txtAddMenu,ButtonBackground: Colors.black,onTap:(){
-
-                    },))
 
 
-
+                    // Align(
+                    //   alignment: Alignment. topRight,
+                    //   child: Container(
+                    //     height: 60.0,
+                    //     width: 60.0,
+                    //     child: FittedBox(
+                    //       child: FloatingActionButton(
+                    //         foregroundColor: Colors.white,
+                    //         backgroundColor: Colors.black,
+                    //         tooltip: 'Open New Page',
+                    //         onPressed: ()
+                    //             {
+                    //               Navigator.of(context).push(MaterialPageRoute(
+                    //                   builder: (context) => MediaSelection()));
+                    //             },
+                    //         child: new Icon(Icons.navigate_next,size: 30,),),
+                    //     ),
+                    //   ),
+                    // ),
+                    // Align(
+                    //   alignment: Alignment. topRight,
+                    //   child: CommonElevatedButton(
+                    //     lableText: "Next",
+                    //     context: context,
+                    //     ButtonBackground: Colors.black,
+                    //     onTap: ()
+                    //     {
+                    //       Navigator.of(context).push(MaterialPageRoute(
+                    //           builder: (context) => MediaSelection()));
+                    //     },
+                    //   ),
+                    // )
 
 
                   ],

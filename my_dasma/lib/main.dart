@@ -28,6 +28,7 @@ void main() async{
         ChangeNotifierProvider(create: (_) =>  CategoryDetailProvider()),
         ChangeNotifierProvider(create: (_) =>  BusinessMenuProvider()),
 
+
       ],child:  MyApp()),
 
   ));
