@@ -26,10 +26,10 @@ class ViewDetailScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: CommonAppBar(
           appBar: AppBar(),
-          title: txtLookAtRestaurant,
+          title: "Look At The Restaurant",
           AppBarBackground:Colors.black,
           isLeading: true,
-
+          // isDrawer: true,
           textColor: Colors.white,
 
         ),
@@ -43,7 +43,7 @@ class ViewDetailScreen extends StatelessWidget {
                     children: <Widget>[
                       Center(
                         child: Text(
-                          txtDetailsOfRestaurant,
+                          "Details of the Restaurant",
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -63,7 +63,7 @@ class ViewDetailScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                txtRestaurantName,
+                                "Name of Restaurant ",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
@@ -87,7 +87,7 @@ class ViewDetailScreen extends StatelessWidget {
                           thickness: 1.h,),
                       SizedBox(height: 5.h,),
                       Text(
-                        txtMinimumAllowPeople,
+                          "Minimum Allowed People",
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -110,7 +110,7 @@ class ViewDetailScreen extends StatelessWidget {
                           thickness: 1.h,),
                       SizedBox(height: 5.h,),
                       Text(
-                        txtMaximumAllowPeople,
+                          "Maximum Allowed People",
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -133,7 +133,7 @@ class ViewDetailScreen extends StatelessWidget {
                           thickness: 1.h,),
                       SizedBox(height: 5.h,),
                       Text(
-                        txtCreated,
+                          "Created",
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -159,7 +159,7 @@ class ViewDetailScreen extends StatelessWidget {
                       SizedBox(height: 5.h,),
 
                       Text(
-                        txtWidth,
+                          "Width",
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -185,7 +185,7 @@ class ViewDetailScreen extends StatelessWidget {
                       SizedBox(height: 5.h,),
 
                       Text(
-                        txtLength,
+                          "Length",
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -211,7 +211,7 @@ class ViewDetailScreen extends StatelessWidget {
                       SizedBox(height: 5.h,),
 
                       Text(
-                        txtState,
+                          "State",
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,

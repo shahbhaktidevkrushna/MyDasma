@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+//import 'package:file_picker/file_picker.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -492,7 +493,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
           child: Row(
             children: [
               ElevatedButton(onPressed: () async {
-                picked = await FilePicker.platform.pickFiles();
+                /*picked = await FilePicker.platform.pickFiles();
 
                 if (picked == null){
                   Center(child: CircularProgressIndicator());
@@ -501,7 +502,7 @@ class _SignUpPageState extends State<SignUpPage> with Constant {
                   //Text(picked.files.first.name, style: TextStyle(fontSize: 14));
                   signupProviderWatch.setFile(picked.files.first.name);
 
-                }
+                }*/
 
               }, child: Text(btnTextChooseFile,
                 style: TextStyle(color: Colors.black54),), style: ElevatedButton.styleFrom(

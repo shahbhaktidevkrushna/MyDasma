@@ -18,9 +18,6 @@ class MediaPlayScreen extends StatefulWidget {
 
 class _MediaPlayScreenState extends State<MediaPlayScreen> {
 
-
-
-
   @override
   void initState() {
     // TODO: implement initState

@@ -9,6 +9,8 @@ import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_dasma/ui/AddRestaurantMainDetail.dart';
+import 'package:my_dasma/ui/SingerAudioSelection.dart';
+import 'package:my_dasma/ui/SingerContentScreen.dart';
 import 'dart:io';
 import 'package:video_player/video_player.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
@@ -34,6 +36,7 @@ class _MediaSelectionState extends State<MediaSelection> {
   Uint8List? video;
   List<Uint8List> videoList=<Uint8List>[];
   VideoPlayerController? _videoPlayerController;
+  var videoLinkController = TextEditingController();
 
 
 
@@ -55,7 +58,7 @@ class _MediaSelectionState extends State<MediaSelection> {
         appBar: AppBar(),
         AppBarBackground: blackDark,
         isLeading: true,
-        title: txtMediaSelection,
+        title: "Media Selection",
         textColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -192,7 +195,6 @@ class _MediaSelectionState extends State<MediaSelection> {
                             onPressed: () {
 
                               setState(() {
-
                                 videoList.removeAt(index);
                                 print("videolist length:"+videoList.length.toString());
                               });
@@ -215,13 +217,13 @@ class _MediaSelectionState extends State<MediaSelection> {
                 height: 10.h,
               ),
               Text(
-                  txtYoutubeVideoLink,
+                "On Youtube Video At Restaurants",
                 style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold)
               ),
               SizedBox(
                 height: 10.h,
               ),
-              CommonBusinessTextField(context: context, hintText: txtVideoLink, maxLine: 2),
+              CommonBusinessTextField(context: context, hintText: "Video Link", maxLine: 2, controller: videoLinkController,),
               SizedBox(
                 height: 30.h,
               ),
@@ -233,7 +235,8 @@ class _MediaSelectionState extends State<MediaSelection> {
                   child: FittedBox(
                     child: FloatingActionButton(onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AddRestaurantMainScreen()));
+                          //builder: (context) => AddRestaurantMainScreen()));
+                          builder: (context) => SingerAudioSelection()));
                     },
                       foregroundColor: Colors.white,
                          backgroundColor: Colors.black,
@@ -243,7 +246,20 @@ class _MediaSelectionState extends State<MediaSelection> {
                 ),
               ),
 
-
+              // Align(
+              //   alignment: Alignment. center,
+              //   child: FloatingActionButton(
+              //
+              //     foregroundColor: Colors.white,
+              //     backgroundColor: Colors.black,
+              //     onPressed: (){
+              //       // Navigator.of(context).push(MaterialPageRoute(
+              //       //     builder: (context) => MediaSelection()));
+              //     },
+              //     tooltip: 'Open New Page',
+              //     child: new Icon(Icons.navigate_next),
+              //   ),
+              // ),
             ],
           ),
         ),

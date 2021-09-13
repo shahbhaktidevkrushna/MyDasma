@@ -7,6 +7,7 @@ class CommonBusinessTextField extends StatelessWidget
    BuildContext context;
    String hintText;
    int maxLine;
+   TextEditingController controller;
    final Function()? onTap;
 
 
@@ -14,6 +15,7 @@ class CommonBusinessTextField extends StatelessWidget
     required this.context,
      required this.hintText,
      required this.maxLine,
+     required this.controller,
      this.onTap,
 
   });
@@ -39,10 +41,11 @@ class CommonBusinessTextField extends StatelessWidget
             ),
             hintText: hintText,
             isDense: true,
-
             hintStyle: TextStyle(color: Colors.grey,fontSize: 14.sp,fontWeight: FontWeight.normal)
         ),
+        controller: controller,
       ),
+
     );
   }
 
