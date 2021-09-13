@@ -7,19 +7,16 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:my_dasma/extras/constants/Constant.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:my_dasma/ui/AboutUsScreen.dart';
-import 'package:my_dasma/ui/AboutUsScreen.dart';
 import 'package:my_dasma/ui/BlogScreen.dart';
 import 'package:my_dasma/ui/BusinessHomeScreen.dart';
+import 'package:my_dasma/ui/RestaurantListScreen.dart';
 import 'package:my_dasma/ui/ContactUsScreen.dart';
-
 import 'package:my_dasma/ui/MediaPlayScreen.dart';
 import 'package:my_dasma/ui/MediaScreen.dart';
 import 'package:my_dasma/ui/MediaSelection.dart';
 import 'package:my_dasma/ui/PrivacyPolicyScreen.dart';
 import 'package:my_dasma/ui/HomeScreen.dart';
 import 'package:my_dasma/ui/BusinessDrawer.dart';
-import 'package:my_dasma/ui/SingerContentScreen.dart';
-import 'package:my_dasma/ui/businessDrawer.dart';
 import 'package:provider/provider.dart';
 
 
@@ -31,7 +28,7 @@ class BusinessDashboard extends StatefulWidget {
     MenuItem(tr(txtBlog), Icons.notifications, 2),
     MenuItem(tr(txtContactUs), Icons.help, 3),
     MenuItem(tr(txtAboutUs), Icons.info_outline, 4),
-     MenuItem(tr(txtPrivacyPolicy), Icons.info_outline, 5),
+    MenuItem(tr(txtPrivacyPolicy), Icons.info_outline, 5),
   ];
 
   @override
@@ -59,7 +56,7 @@ class _BusinessDashboardState extends State<BusinessDashboard> {
           callback: _updatePage,
           current: _currentPage,
         ),
-         mainScreen: MainScreen(index: getPage(),),
+        mainScreen: MainScreen(index: getPage(),),
         // mainScreen: MainScreen(),
         borderRadius: 24.0,
 //      showShadow: true,
@@ -101,7 +98,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-      print("current index::"+Provider.of<BusinessMenuProvider>(context, listen: false)._currentPage.toString());
+    print("current index::"+Provider.of<BusinessMenuProvider>(context, listen: false)._currentPage.toString());
     final rtl = context.locale.languageCode == "ar";
     return ValueListenableBuilder<DrawerState>(
       valueListenable: ZoomDrawer.of(context)!.stateNotifier!,

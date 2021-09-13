@@ -172,7 +172,7 @@ class _AddMenuSceeenState extends State<AddMenuSceeen> {
                           SizedBox(height: 5.h,),
                           Text("Price €",style: TextStyle(color: Colors.black,fontSize: 16.sp,fontWeight: FontWeight.w500),),
                           SizedBox(height: 5.h,),
-                          CommonBusinessTextField(context: context, hintText: "Price €", maxLine: 1),
+                          CommonBusinessTextField(context: context, hintText: "Price €", maxLine: 1, controller: null,),
                           SizedBox(height: 5.h,),
                           Text("Select restaurant",style: TextStyle(color: Colors.black,fontSize: 16.sp,fontWeight: FontWeight.w500),),
                           SizedBox(height: 5.h,),

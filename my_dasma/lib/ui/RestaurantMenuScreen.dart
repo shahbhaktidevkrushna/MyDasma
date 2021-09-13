@@ -132,7 +132,7 @@ class _RestaurantMenuScreenState extends State<RestaurantMenuScreen> {
                 Row(
 
                   children: [
-                    Text(txtPrice,style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16.sp),),
+                    Text(txtPriceSymbol,style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16.sp),),
                     Text("1.14",style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal,fontSize: 14.sp),),
                   ],
                 ),
