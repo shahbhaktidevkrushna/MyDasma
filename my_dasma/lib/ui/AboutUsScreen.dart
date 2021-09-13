@@ -15,7 +15,7 @@ import 'UserDashboard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-class AboutUs extends StatelessWidget {
+class AboutUsScreen extends StatelessWidget {
 
 
   @override

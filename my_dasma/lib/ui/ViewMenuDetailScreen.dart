@@ -15,8 +15,13 @@ import 'UserDashboard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-class ViewDetailScreen extends StatelessWidget {
+class ViewMenuDetailScreen extends StatefulWidget {
 
+  @override
+  _ViewMenuDetailScreenState createState() => _ViewMenuDetailScreenState();
+}
+
+class _ViewMenuDetailScreenState extends State<ViewMenuDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final _currentPage =
@@ -26,10 +31,10 @@ class ViewDetailScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: CommonAppBar(
           appBar: AppBar(),
-          title: "Look At The Restaurant",
+          title: txtLookAtMenu,
           AppBarBackground:Colors.black,
           isLeading: true,
-          // isDrawer: true,
+
           textColor: Colors.white,
 
         ),
@@ -43,7 +48,7 @@ class ViewDetailScreen extends StatelessWidget {
                     children: <Widget>[
                       Center(
                         child: Text(
-                          "Details of the Restaurant",
+                          txtMenuDetails,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -63,7 +68,7 @@ class ViewDetailScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Name of Restaurant ",
+                                txtRestaurantName,
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
@@ -87,7 +92,7 @@ class ViewDetailScreen extends StatelessWidget {
                           thickness: 1.h,),
                       SizedBox(height: 5.h,),
                       Text(
-                          "Minimum Allowed People",
+                        txtMenuName,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -97,7 +102,7 @@ class ViewDetailScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 5.h,),
                       Text(
-                          "120",
+                          "dsadv dsadsa sadasd",
                           textAlign: TextAlign.right,
                           style: TextStyle(
                             color: Colors.black,
@@ -110,7 +115,7 @@ class ViewDetailScreen extends StatelessWidget {
                           thickness: 1.h,),
                       SizedBox(height: 5.h,),
                       Text(
-                          "Maximum Allowed People",
+                        txtMenuPrice,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -120,7 +125,7 @@ class ViewDetailScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 5.h,),
                       Text(
-                          "500",
+                          "€1.14",
                           textAlign: TextAlign.right,
                           style: TextStyle(
                             color: Colors.black,
@@ -133,7 +138,7 @@ class ViewDetailScreen extends StatelessWidget {
                           thickness: 1.h,),
                       SizedBox(height: 5.h,),
                       Text(
-                          "Created",
+                        txtCreated,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -159,7 +164,7 @@ class ViewDetailScreen extends StatelessWidget {
                       SizedBox(height: 5.h,),
 
                       Text(
-                          "Width",
+                        txtState,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -170,7 +175,7 @@ class ViewDetailScreen extends StatelessWidget {
                       SizedBox(height: 5.h,),
 
                       Text(
-                          "-33.8689358",
+                          "Accepted",
                           textAlign: TextAlign.right,
                           style: TextStyle(
                             color: Colors.black,
@@ -185,7 +190,7 @@ class ViewDetailScreen extends StatelessWidget {
                       SizedBox(height: 5.h,),
 
                       Text(
-                          "Length",
+                        txtMenuComposition,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -196,7 +201,8 @@ class ViewDetailScreen extends StatelessWidget {
                       SizedBox(height: 5.h,),
 
                       Text(
-                          "151.2066116",
+                          "aaaaa \n bbbbb",
+                          maxLines: 5,
                           textAlign: TextAlign.right,
                           style: TextStyle(
                             color: Colors.black,
@@ -205,30 +211,7 @@ class ViewDetailScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 5.h,),
 
-                      Divider(
-                          color: Colors.grey,
-                          thickness: 1.h,),
-                      SizedBox(height: 5.h,),
 
-                      Text(
-                          "State",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.sp,
-                          ),
-                      ),
-                      SizedBox(height: 5.h,),
-
-                      Text(
-                          "Inactive (passive)",
-                          textAlign: TextAlign.right,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14.sp,
-                          ),
-                      ),
-                      SizedBox(height: 5.h,),
                             ],
                           ),
                         ),

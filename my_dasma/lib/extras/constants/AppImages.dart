@@ -16,4 +16,9 @@ const parkingIcon = "assets/parking_icon.png";
 const playgroundIcon = "assets/playground_icon.png";
 const swimmingpoolIcon = "assets/swimmingpool_icon.png";
 const gradiant_back_image = "assets/gradiant_image.jpeg";
+const bed_icon = "assets/restaurant.png";
+const menu_icon = "assets/rest_menu.png";
+const no_image = "assets/no_image.gif";
+const round_button = "assets/round_add_button.png";
+const minus_icon = "assets/minus.png";
 

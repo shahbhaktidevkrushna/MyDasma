@@ -5,7 +5,7 @@ import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/AppImages.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
-import 'package:my_dasma/ui/CategoryDetailListPage.dart';
+import 'package:my_dasma/ui/CategoryDetailListScreen.dart';
 import 'package:provider/provider.dart';
 import 'UserDashboard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                         child: InkWell(
                           onTap: (){
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => CategoryDetailListPage(isFrom: categoryList[index].title,)));
+                                builder: (context) => CategoryDetailListScreen(isFrom: categoryList[index].title,)));
                           },
                         ),),
                       Container(

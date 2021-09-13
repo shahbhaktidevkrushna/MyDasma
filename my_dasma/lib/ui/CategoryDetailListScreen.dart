@@ -6,21 +6,21 @@ import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/AppImages.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_dasma/ui/CategoryDetailListDetailPage.dart';
+import 'package:my_dasma/ui/CategoryDetailListDetailScreen.dart';
 import 'package:my_dasma/ui/UserDashboard.dart';
 
 
-class CategoryDetailListPage extends StatefulWidget {
+class CategoryDetailListScreen extends StatefulWidget {
 
   final String isFrom;
 
-  const CategoryDetailListPage({Key? key,required this.isFrom}) : super(key: key);
+  const CategoryDetailListScreen({Key? key,required this.isFrom}) : super(key: key);
 
   @override
-  _CategoryDetailListPageState createState() => _CategoryDetailListPageState();
+  _CategoryDetailListScreenState createState() => _CategoryDetailListScreenState();
 }
 
-class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
+class _CategoryDetailListScreenState extends State<CategoryDetailListScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -65,7 +65,7 @@ class _CategoryDetailListPageState extends State<CategoryDetailListPage> {
                       InkWell(
                         onTap: (){
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => CategoryDetailListDetailPage(restName: txtCatListTitle,isFrom: widget.isFrom,)));
+                              builder: (context) => CategoryDetailListDetailScreen(restName: txtCatListTitle,isFrom: widget.isFrom,)));
                         },
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,20 +1,17 @@
 import 'dart:typed_data';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonBusinessTextField.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_dasma/ui/HairDresserContent.dart';
-import 'package:my_dasma/ui/AddRestaurantMainDetail.dart';
-import 'package:my_dasma/ui/SingerAudioSelection.dart';
-import 'package:my_dasma/ui/SingerContentScreen.dart';
+import 'package:my_dasma/ui/AddRestaurantOtherDetailScreen.dart';
 import 'dart:io';
 import 'package:video_player/video_player.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
-
 
 class MediaSelection extends StatefulWidget {
   const MediaSelection({Key? key}) : super(key: key);
@@ -195,6 +192,7 @@ class _MediaSelectionState extends State<MediaSelection> {
                             onPressed: () {
 
                               setState(() {
+
                                 videoList.removeAt(index);
                                 print("videolist length:"+videoList.length.toString());
                               });
@@ -223,21 +221,19 @@ class _MediaSelectionState extends State<MediaSelection> {
               SizedBox(
                 height: 10.h,
               ),
-              CommonBusinessTextField(context: context, hintText: "Video Link", maxLine: 2, controller: videoLinkController,),
+              CommonBusinessTextField(context: context, hintText: "Video Link", maxLine: 2, controller: null,),
               SizedBox(
                 height: 30.h,
               ),
               Align(
-                alignment: Alignment.topRight,
+                alignment: Alignment. topRight,
                 child: Container(
                   height: 60.0,
                   width: 60.0,
                   child: FittedBox(
                     child: FloatingActionButton(onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          //builder: (context) => AddRestaurantMainScreen()));
-                          builder: (context) => SingerAudioSelection()));
-                          builder: (context) => HairDresserContent()));
+                          builder: (context) => AddRestaurantOtherDetailScreen()));
                     },
                       foregroundColor: Colors.white,
                          backgroundColor: Colors.black,

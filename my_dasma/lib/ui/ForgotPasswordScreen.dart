@@ -7,14 +7,14 @@ import 'package:my_dasma/extras/constants/AppImages.dart';
 import 'package:my_dasma/extras/constants/Constant.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 
-class ForgotPasswordPage extends StatefulWidget {
-  const ForgotPasswordPage({Key? key}) : super(key: key);
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({Key? key}) : super(key: key);
 
   @override
-  _ForgotPasswordPageState createState() => _ForgotPasswordPageState();
+  _ForgotPasswordScreenState createState() => _ForgotPasswordScreenState();
 }
 
-class _ForgotPasswordPageState extends State<ForgotPasswordPage> with Constant {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> with Constant {
 
   TextEditingController _emailController = TextEditingController();
 

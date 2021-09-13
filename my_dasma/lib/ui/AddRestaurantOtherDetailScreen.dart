@@ -18,13 +18,13 @@ import 'UserDashboard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-class AddRestaurantMainScreen extends StatefulWidget {
+class AddRestaurantOtherDetailScreen extends StatefulWidget {
 
   @override
-  _AddRestaurantMainScreenState createState() => _AddRestaurantMainScreenState();
+  _AddRestaurantOtherDetailScreenState createState() => _AddRestaurantOtherDetailScreenState();
 }
 
-class _AddRestaurantMainScreenState extends State<AddRestaurantMainScreen> {
+class _AddRestaurantOtherDetailScreenState extends State<AddRestaurantOtherDetailScreen> {
   bool? valuefirst = false;
   bool? valuesecond = false;
 
@@ -43,7 +43,7 @@ class _AddRestaurantMainScreenState extends State<AddRestaurantMainScreen> {
         backgroundColor: Colors.white,
         appBar: CommonAppBar(
           appBar: AppBar(),
-          title: "Other Restaurant Detail",
+          title:txtOtherRestaurantDetail,
           AppBarBackground:Colors.black,
           isLeading: true,
           // isDrawer: true,
@@ -58,19 +58,19 @@ class _AddRestaurantMainScreenState extends State<AddRestaurantMainScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Name of restaurant",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text(txtRestaurantName,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
-                    CommonBusinessTextField(context: context, hintText: "Name of restaurant", maxLine:1, controller: restNameController, ),
+                    CommonBusinessTextField(context: context, hintText: txtRestaurantName, maxLine:1 ),
                     SizedBox(height: 8.h,),
-                    Text("Minimum allowed people",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text(txtMinimumAllowPeople,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
-                    CommonBusinessTextField(context: context, hintText: "Minimum allowed people", maxLine:1, controller: minAllowedPController, ),
+                    CommonBusinessTextField(context: context, hintText: txtMinimumAllowPeople, maxLine:1 ),
                     SizedBox(height: 8.h,),
-                    Text("Maximum allowed people",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text(txtMaximumAllowPeople,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
-                    CommonBusinessTextField(context: context, hintText: "Maximum allowed people", maxLine:1, controller: maxAllowedPController, ),
+                    CommonBusinessTextField(context: context, hintText: txtMaximumAllowPeople, maxLine:1 ),
                     SizedBox(height: 8.h,),
-                    Text("State",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text(txtState,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
                     InputDecorator(
                       decoration: InputDecoration(
@@ -94,45 +94,20 @@ class _AddRestaurantMainScreenState extends State<AddRestaurantMainScreen> {
                         ),
                       ),),
                     SizedBox(height: 8.h,),
-                    Text("Detail of restaurant",style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    Text(txtDetailsOfRestaurant,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
                     SizedBox(height: 8.h,),
-                    CommonBusinessTextField(context: context, hintText: "Maximum allowed people", maxLine:8, controller: restDetailController, ),
+                    CommonBusinessTextField(context: context, hintText: txtDetailsOfRestaurant, maxLine:8, controller: null, ),
                     SizedBox(height: 8.h,),
 
+                    Text(txtRestaurantAddress,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 8.h,),
+                    CommonBusinessTextField(context: context, hintText: txtRestaurantAddress, maxLine:4, controller: null, ),
+                    SizedBox(height: 10.h,),
+                    Center(child: CommonElevatedButton(context: context, lableText: txtSubmit,ButtonBackground: Colors.black,onTap:(){
+                       Navigator.pop(context);
+                  }))
 
 
-                    // Align(
-                    //   alignment: Alignment. topRight,
-                    //   child: Container(
-                    //     height: 60.0,
-                    //     width: 60.0,
-                    //     child: FittedBox(
-                    //       child: FloatingActionButton(
-                    //         foregroundColor: Colors.white,
-                    //         backgroundColor: Colors.black,
-                    //         tooltip: 'Open New Page',
-                    //         onPressed: ()
-                    //             {
-                    //               Navigator.of(context).push(MaterialPageRoute(
-                    //                   builder: (context) => MediaSelection()));
-                    //             },
-                    //         child: new Icon(Icons.navigate_next,size: 30,),),
-                    //     ),
-                    //   ),
-                    // ),
-                    // Align(
-                    //   alignment: Alignment. topRight,
-                    //   child: CommonElevatedButton(
-                    //     lableText: "Next",
-                    //     context: context,
-                    //     ButtonBackground: Colors.black,
-                    //     onTap: ()
-                    //     {
-                    //       Navigator.of(context).push(MaterialPageRoute(
-                    //           builder: (context) => MediaSelection()));
-                    //     },
-                    //   ),
-                    // )
 
 
                   ],

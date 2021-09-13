@@ -6,15 +6,18 @@ import 'package:flutter/services.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:my_dasma/extras/constants/Constant.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
-import 'package:my_dasma/ui/AboutUs.dart';
+import 'package:my_dasma/ui/AboutUsScreen.dart';
+import 'package:my_dasma/ui/AboutUsScreen.dart';
 import 'package:my_dasma/ui/BlogScreen.dart';
 import 'package:my_dasma/ui/BusinessHomeScreen.dart';
-import 'package:my_dasma/ui/ContactUs.dart';
+import 'package:my_dasma/ui/ContactUsScreen.dart';
+
 import 'package:my_dasma/ui/MediaPlayScreen.dart';
 import 'package:my_dasma/ui/MediaScreen.dart';
 import 'package:my_dasma/ui/MediaSelection.dart';
-import 'package:my_dasma/ui/PrivacyPolicy.dart';
+import 'package:my_dasma/ui/PrivacyPolicyScreen.dart';
 import 'package:my_dasma/ui/HomeScreen.dart';
+import 'package:my_dasma/ui/BusinessDrawer.dart';
 import 'package:my_dasma/ui/SingerContentScreen.dart';
 import 'package:my_dasma/ui/businessDrawer.dart';
 import 'package:provider/provider.dart';
@@ -137,11 +140,11 @@ class _MainScreenState extends State<MainScreen> {
     }
     else if(index==3)
     {
-      return ContactUs();
+      return ContactUsScreen();
     }
     else if(index==4)
     {
-      return AboutUs();
+      return AboutUsScreen();
     }
     else if(index==5)
     {

@@ -18,13 +18,13 @@ import 'UserDashboard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-class AddRestaurantScreen1 extends StatefulWidget {
+class AddRestaurantBasicDetailSceeen extends StatefulWidget {
 
   @override
-  _AddRestaurantScreen1State createState() => _AddRestaurantScreen1State();
+  _AddRestaurantBasicDetailSceeenState createState() => _AddRestaurantBasicDetailSceeenState();
 }
 
-class _AddRestaurantScreen1State extends State<AddRestaurantScreen1> {
+class _AddRestaurantBasicDetailSceeenState extends State<AddRestaurantBasicDetailSceeen> {
   bool? valuefirst = false;
   bool? valuesecond = false;
 

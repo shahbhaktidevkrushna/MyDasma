@@ -15,14 +15,14 @@ import '../UserData.dart';
 import '../webservice.dart';
 import 'SigninScreen.dart';
 
-class EditProfilePage extends StatefulWidget {
-  const EditProfilePage({Key? key}) : super(key: key);
+class EditProfileScreen extends StatefulWidget {
+  const EditProfileScreen({Key? key}) : super(key: key);
 
   @override
-  _EditProfilePageState createState() => _EditProfilePageState();
+  _EditProfileScreenState createState() => _EditProfileScreenState();
 }
 
-class _EditProfilePageState extends State<EditProfilePage> {
+class _EditProfileScreenState extends State<EditProfileScreen> {
 
   var tabIndex = 0;
   DateTime selectedDate = DateTime.now();

@@ -8,35 +8,28 @@ import 'package:my_dasma/extras/commonWidgets/CommonBusinessButton.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/AppImages.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
-import 'package:my_dasma/ui/AddRestaurant1.dart';
-import 'package:my_dasma/ui/CategoryDetailListPage.dart';
-import 'package:my_dasma/ui/ViewDetailScreen.dart';
+import 'package:my_dasma/ui/AddRestaurantBasicDetailScreen.dart';
+import 'package:my_dasma/ui/CategoryDetailListScreen.dart';
+import 'package:my_dasma/ui/RestaurantMenuScreen.dart';
+import 'package:my_dasma/ui/ViewRestaurantDetailScreen.dart';
 import 'package:provider/provider.dart';
+import 'RestaurantListScreen.dart';
 import 'UserDashboard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class BusinessHomeScreen extends StatefulWidget {
-
-
   @override
   _BusinessHomeScreenState createState() => _BusinessHomeScreenState();
 }
 
 class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
   bool status = false;
-
-  final List<CategoryList> categoryList= <CategoryList>[
-    CategoryList(gradiant_back_image, catRest),
-    CategoryList(gradiant_back_image, catSinger),
-    CategoryList(gradiant_back_image, catCameraman),
-    CategoryList(gradiant_back_image, catPhotographer),
-    CategoryList(gradiant_back_image, catCameraPhotographer),
-    CategoryList(gradiant_back_image, catDecoration),
-    CategoryList(gradiant_back_image, catMakeup),
-    CategoryList(gradiant_back_image, catDJ),
-    CategoryList(gradiant_back_image, catDancer),
-    ];
+  final List<DashboardData> dashboardList = <DashboardData>[
+    DashboardData(bed_icon, "MANAGE THE RESTAURANT",
+        "From here you can add and manage the Restaurant"),
+    DashboardData(menu_icon, "MANAGE MENUS OFFERED BY RESTAURANT",
+        "From here you can manage the Restaurant Menus"),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -44,158 +37,131 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
         context.select<MenuProvider, int>((provider) => provider.currentPage);
     return SafeArea(
       child: Scaffold(
-         backgroundColor: Colors.white                      ,
+        backgroundColor: Colors.white,
         appBar: CommonAppBar(
           appBar: AppBar(),
           title: txtHome,
-          AppBarBackground:Colors.black,
+          AppBarBackground: Colors.black,
           isLeading: false,
           // isDrawer: true,
           textColor: Colors.white,
-
         ),
-
-        body:SingleChildScrollView(
-          child: Container(
-            margin: EdgeInsets.symmetric(vertical: 4.h, horizontal: 15.w),
-            alignment: Alignment.center,
-            color: Colors.white,
-            child:Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 10.h,),
-                Text("List Of Restaurants",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w900,fontSize: 20.sp),),
-                SizedBox(height: 10.h,),
-                Text("Please note that all parts must be completed before your business becomes public. If you can not add all the details at once, be sure to press the Send button, or you will lose everything you have written / added. Video is optional.",style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal,fontSize: 14.sp),),
-                SizedBox(height: 10.h,),
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount:3,
-                  itemBuilder: (context, index){
-                    return restList();
-                  },
-                ),
-              ],
-            )
-
+        body: Container(
+          margin: EdgeInsets.only(top: 10.h, left: 10.h, right: 10.h),
+          color: Colors.white,
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: dashboardList.length,
+            itemBuilder: (context, index) {
+              return restList(dashboardList[index], index);
+            },
           ),
         ),
-        bottomNavigationBar: Padding(
-          padding:  EdgeInsets.only(right: 25.w,left: 25.w,bottom: 10.h,top: 10.h),
-          child: Container(
-            height: 30.h,
-           // width: MediaQuery.of(context).size.width/1.2,
-            child: CommonElevatedButton(
-              context: context,
-              lableText: "Add Restaurnat",
-              ButtonBackground: Colors.black,
-              onTap: ()
-              {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => AddRestaurantScreen1()));
-              },
-            )
-          ),
-        ) ,
+        // bottomNavigationBar: Padding(
+        //   padding:
+        //       EdgeInsets.only(right: 25.w, left: 25.w, bottom: 10.h, top: 10.h),
+        //   child: Container(
+        //       height: 30.h,
+        //       // width: MediaQuery.of(context).size.width/1.2,
+        //       child: CommonElevatedButton(
+        //         context: context,
+        //         lableText: "Add Restaurnat",
+        //         ButtonBackground: Colors.black,
+        //         onTap: () {
+        //           // Navigator.of(context).push(MaterialPageRoute(
+        //           //     builder: (context) => AddRestaurantScreen1()));
+        //         },
+        //       )),
+        // ),
       ),
     );
   }
 
-  Widget restList()
-  {
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.r)
-      ),
+  Widget restList(DashboardData item, int index) {
+    return GestureDetector(
+      onTap: () {
+        if (index == 0) {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => RestaurantListScreen()));
+        } else if (index == 1) {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => RestaurantMenuScreen()));
+        }
+      },
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-             Row(
-
-               children: [
-                 Text("Name of Rest.",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16.sp),),
-                 Spacer(),
-                 FlutterSwitch(
-                   width: 80.0,
-                   height: 35.0,
-                   valueFontSize: 13.sp,
-                   toggleSize: 30.0,
-                   value: status,
-                   borderRadius: 30.0,
-                   padding: 8.0,
-                   showOnOff: true,
-                    activeColor: Colors.black,
-                   onToggle: (val) {
-                     setState(() {
-                       status = val;
-                     });
-                   },
-                 ),
-               ],
-             ),
-
-              Row(
-
-                children: [
-                  Text("Created : ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16.sp),),
-                  Text("2021-09-03 18:19:37",style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal,fontSize: 14.sp),),
-
-                ],
-              ),
-              SizedBox(height: 3.h,),
-              Row(
-
-                children: [
-                  Text("Modified : ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16.sp),),
-                  Text("2021-09-03 18:19:37",style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal,fontSize: 14.sp),),
-
-                ],
-              ),
-              SizedBox(height: 5.h,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+        padding: EdgeInsets.only(top: 10.h),
+        child: Card(
+          clipBehavior: Clip.antiAlias,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: 25.h,
-
-                    child:CommonElevatedButton(
-                      onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ViewDetailScreen()));
-                      },
-                      context: context,
-                      lableText: "View",
-                      ButtonBackground: Colors.black,
-                    )
+                      child: Padding(
+                        padding: EdgeInsets.all(12.h),
+                        child: Image.asset(
+                          item.image,
+                          height: 30.h,
+                          width: 30.h,
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(60)),
+                      )),
+                  SizedBox(
+                    height: 15.h,
                   ),
-                  SizedBox(width: 10.h,),
-                  Container(
-                    height: 25.h,
-
-                    child: CommonElevatedButton(
-                      context: context,
-                      lableText: "Edit",
-                      ButtonBackground: Colors.black,
-                    )
-                  )
+                  Text(
+                    item.title,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 18.sp),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  Divider(
+                    height: 2,
+                    color: Colors.grey,
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  Text(
+                    item.description,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black,
+                        fontSize: 16.sp),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
                 ],
               ),
-
-            ],
+            ),
           ),
         ),
       ),
     );
   }
 }
-class CategoryList {
+
+class DashboardData {
   final String image;
   final String title;
-  CategoryList(this.image,this.title );
-  
-  
+  final String description;
+
+  DashboardData(this.image, this.title, this.description);
 }
