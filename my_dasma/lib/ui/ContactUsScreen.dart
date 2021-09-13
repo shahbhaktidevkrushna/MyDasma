@@ -15,7 +15,7 @@ import 'UserDashboard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-class ContactUs extends StatelessWidget {
+class ContactUsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ import 'package:my_dasma/providers/signupProvider.dart';
 import 'package:my_dasma/ui/BusinessDashboard.dart';
 import 'package:my_dasma/ui/UserDashboard.dart';
 
-import 'package:my_dasma/ui/splashScreen.dart';
+import 'package:my_dasma/ui/SplashScreen.dart';
 import 'package:provider/provider.dart';
 
 void main() async{

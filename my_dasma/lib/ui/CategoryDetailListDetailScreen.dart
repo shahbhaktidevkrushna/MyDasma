@@ -12,18 +12,18 @@ import 'package:provider/provider.dart';
 import 'dart:math' as math;
 
 
-class CategoryDetailListDetailPage extends StatefulWidget {
+class CategoryDetailListDetailScreen extends StatefulWidget {
 
    String restName="",isFrom;
   // CategoryDetailListDetailPage(this.restName);
 
-   CategoryDetailListDetailPage({Key? key,required this.restName,required this.isFrom}) : super(key: key);
+   CategoryDetailListDetailScreen({Key? key,required this.restName,required this.isFrom}) : super(key: key);
 
   @override
-  _CategoryDetailListDetailPageState createState() => _CategoryDetailListDetailPageState();
+  _CategoryDetailListDetailScreenState createState() => _CategoryDetailListDetailScreenState();
 }
 
-class _CategoryDetailListDetailPageState extends State<CategoryDetailListDetailPage>  with SingleTickerProviderStateMixin {
+class _CategoryDetailListDetailScreenState extends State<CategoryDetailListDetailScreen>  with SingleTickerProviderStateMixin {
 
   List<String> partyList=['wedding',
                 'Konagjeqi',

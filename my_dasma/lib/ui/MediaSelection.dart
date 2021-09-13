@@ -8,7 +8,7 @@ import 'package:my_dasma/extras/commonWidgets/CommonBusinessTextField.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_dasma/ui/AddRestaurantMainDetail.dart';
+import 'package:my_dasma/ui/AddRestaurantOtherDetailScreen.dart';
 import 'dart:io';
 import 'package:video_player/video_player.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
@@ -231,7 +231,7 @@ class _MediaSelectionState extends State<MediaSelection> {
                   child: FittedBox(
                     child: FloatingActionButton(onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AddRestaurantMainScreen()));
+                          builder: (context) => AddRestaurantOtherDetailScreen()));
                     },
                       foregroundColor: Colors.white,
                          backgroundColor: Colors.black,

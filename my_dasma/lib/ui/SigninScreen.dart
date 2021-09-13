@@ -13,12 +13,11 @@ import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:my_dasma/model/LoginModel.dart';
 import 'package:my_dasma/providers/loginProvider.dart';
 import 'package:my_dasma/ui/BusinessDashboard.dart';
-import 'package:my_dasma/ui/ListViewPage.dart';
-import 'package:my_dasma/ui/WelcomePage.dart';
-import 'package:my_dasma/ui/forgotPasswordPage.dart';
+import 'package:my_dasma/ui/WelcomeScreen.dart';
+import 'package:my_dasma/ui/ForgotPasswordScreen.dart';
 import 'package:my_dasma/ui/UserDashboard.dart';
-import 'package:my_dasma/ui/userDrawer.dart';
-import 'package:my_dasma/ui/signupScreen.dart';
+import 'package:my_dasma/ui/UserDrawer.dart';
+import 'package:my_dasma/ui/SignupScreen.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonEditText.dart';
 import '../webservice.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -67,6 +66,7 @@ class _LoginPageState extends State<LoginPage> with Constant{
   @override
   Widget build(BuildContext context) {
     loginProviderWatch=context.watch<LoginProvider>();
+    print("build is called");
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
@@ -176,7 +176,7 @@ class _LoginPageState extends State<LoginPage> with Constant{
                           child: InkWell(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => ForgotPasswordPage()));
+                                  builder: (context) => ForgotPasswordScreen()));
                             },
                             child: Text(
                               txtForGotPassword,
