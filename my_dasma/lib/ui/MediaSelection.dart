@@ -12,6 +12,7 @@ import 'package:my_dasma/ui/AddRestaurantOtherDetailScreen.dart';
 import 'dart:io';
 import 'package:video_player/video_player.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
+import 'AddServicePackage.dart';
 
 class MediaSelection extends StatefulWidget {
   const MediaSelection({Key? key}) : super(key: key);
@@ -243,20 +244,6 @@ class _MediaSelectionState extends State<MediaSelection> {
                 ),
               ),
 
-              // Align(
-              //   alignment: Alignment. center,
-              //   child: FloatingActionButton(
-              //
-              //     foregroundColor: Colors.white,
-              //     backgroundColor: Colors.black,
-              //     onPressed: (){
-              //       // Navigator.of(context).push(MaterialPageRoute(
-              //       //     builder: (context) => MediaSelection()));
-              //     },
-              //     tooltip: 'Open New Page',
-              //     child: new Icon(Icons.navigate_next),
-              //   ),
-              // ),
             ],
           ),
         ),

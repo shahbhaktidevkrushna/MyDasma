@@ -6,7 +6,6 @@ import 'package:my_dasma/extras/constants/Constant.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 
 
-
 class DjContent extends StatefulWidget {
   @override
   _DjContentState createState() => _DjContentState();
