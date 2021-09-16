@@ -57,22 +57,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
             },
           ),
         ),
-        // bottomNavigationBar: Padding(
-        //   padding:
-        //       EdgeInsets.only(right: 25.w, left: 25.w, bottom: 10.h, top: 10.h),
-        //   child: Container(
-        //       height: 30.h,
-        //       // width: MediaQuery.of(context).size.width/1.2,
-        //       child: CommonElevatedButton(
-        //         context: context,
-        //         lableText: "Add Restaurnat",
-        //         ButtonBackground: Colors.black,
-        //         onTap: () {
-        //           // Navigator.of(context).push(MaterialPageRoute(
-        //           //     builder: (context) => AddRestaurantScreen1()));
-        //         },
-        //       )),
-        // ),
+
       ),
     );
   }

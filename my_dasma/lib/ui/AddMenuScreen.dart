@@ -34,7 +34,8 @@ class _AddMenuSceeenState extends State<AddMenuSceeen> {
   String partyName=catRest;
   String restName="Emli Rrestaurant";
   String state="Inactive(passive)";
-
+  int position=0;
+  List<int> n=[];
 
   List<dynamicWidget> dynamicList = [];
   List<String>Product = [];
@@ -50,6 +51,12 @@ class _AddMenuSceeenState extends State<AddMenuSceeen> {
     CategoryList(catDancer),
   ];
 
+  int count = 0;
+  TextEditingController noteSend = TextEditingController();
+  List<String> noteString = [];
+
+
+
   @override
   void initState() {
     // TODO: implement initState
@@ -61,8 +68,30 @@ class _AddMenuSceeenState extends State<AddMenuSceeen> {
 
   @override
   Widget build(BuildContext context) {
-    final _currentPage =
-        context.select<MenuProvider, int>((provider) => provider.currentPage);
+    // List<Widget>? children;
+    // Function(int) onDeleteVar = (int val) {
+    //   setState(
+    //         () => {
+    //       print("noteStringBefore: $noteString"),
+    //       print('childrenBefore: $children'),
+    //       print(val),
+    //       noteString.removeAt(val),
+    //       count--,
+    //       children!.removeAt(val),
+    //       print("noteStringAfter: $noteString"),
+    //       print('childrenAfter $children'),
+    //     },
+    //   );
+    // };
+    //
+    // children = List.generate(
+    //     count,
+    //         (int i) => new InputWidget(i,
+    //         noteRec: noteString[i],
+    //         noteString:noteString,
+    //         count: count,
+    //         onDelete: onDeleteVar));
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -238,33 +267,82 @@ class _AddMenuSceeenState extends State<AddMenuSceeen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("MENU",style: TextStyle(color: Colors.black,fontSize: 16.sp,fontWeight: FontWeight.w500),),
+                          Text("MENU(Add menu item with , seprator)",style: TextStyle(color: Colors.black,fontSize: 16.sp,fontWeight: FontWeight.w500),),
                           SizedBox(height: 6.h,),
-                          dynamicList.length>0?ListView.builder(
-                           itemCount: dynamicList.length,
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            itemBuilder: (_, index) => dynamicList[index],
-                      ):Container(),
-                          SizedBox(height: 6.h,),
-                          Divider(color: Colors.grey,height: 2.h,),
-                          SizedBox(height: 6.h,),
-                          GestureDetector(
-                            onTap: ()
-                            {
-                              setState(() {
-                                print("add button clicked");
-                                addDynamic();
-                              });
-                            },
-                            child: Center(
-                              child: Container(
-                                width: 20.h,
-                                  height: 20.h,
-                                  child:Image.asset(round_button)
-                              ),
-                            ),
-                          )
+                          CommonBusinessTextField(context: context, hintText: "Menu Item", maxLine: 3, controller: null,),
+                         SizedBox(height: 6.h,),
+                      //     n.length>0?ListView.builder(
+                      //      itemCount: n.length,
+                      //       scrollDirection: Axis.vertical,
+                      //       shrinkWrap: true,
+                      //       itemBuilder: (context, index) {
+                      //        return Column(
+                      //           children: [
+                      //             Row(
+                      //               children: [
+                      //                 Expanded(child: CommonBusinessTextField(context: context, hintText: "Name", maxLine: 1)),
+                      //                 SizedBox(width: 10.h,),
+                      //                 Container(
+                      //                     width: 25.h,
+                      //                     height: 25.h,
+                      //                     child:GestureDetector(
+                      //                         onTap:
+                      //                           (){
+                      //
+                      //                           print("Check Index"+index.toString());
+                      //                         setState(() {
+                      //                           // print("minus clicked");
+                      //                           // print("position:"+widget.index.toString());
+                      //
+                      //                          n.removeAt(index);
+                      //
+                      //
+                      //
+                      //                         });
+                      //                         },
+                      //                         child: Container(
+                      //                             child: Image.asset(minus_icon)))
+                      //                 ),
+                      //               ],
+                      //             ),
+                      //             SizedBox(height: 10.h,)
+                      //           ],
+                      //         );
+                      //       },
+                      // ):Container(),
+                      //     ListView(
+                      //       shrinkWrap: true,
+                      //       children: children,
+                      //       scrollDirection: Axis.vertical,
+                      //     ),
+                      //     SizedBox(height: 6.h,),
+                      //     Divider(color: Colors.grey,height: 2.h,),
+                      //     SizedBox(height: 6.h,),
+                      //     GestureDetector(
+                      //       onTap: ()
+                      //       {
+                      //
+                      //         setState(() {
+                      //           noteString.insert(
+                      //             noteString.length,
+                      //             noteSend.text,
+                      //           );
+                      //           count = count + 1;
+                      //         });
+                      //        //  setState(() {
+                      //        //    print("add button clicked");
+                      //        // //   addDynamic();
+                      //        //    n.add(0);
+                      //        //  });
+                      //       },
+                      //       child: Center(
+                      //         child: Container(
+                      //           width: 20.h,
+                      //             height: 20.h,
+                      //             child:Image.asset(round_button)
+                      //         ),
+                      //       ),
+                      //     )
                         ],
                       ),
                     ),
@@ -287,7 +365,7 @@ class _AddMenuSceeenState extends State<AddMenuSceeen> {
                     SizedBox(height: 5.h,),
                     Padding(
                       padding: EdgeInsets.only(left: 12.h,right:12.h),
-                      child: CommonBusinessTextField(context: context, hintText: "Liguistic Content", maxLine: 2),
+                      child: CommonBusinessTextField(context: context, hintText: "Liguistic Content", maxLine: 3),
                     ),
 
                     SizedBox(height: 10.h,),
@@ -321,13 +399,17 @@ class _AddMenuSceeenState extends State<AddMenuSceeen> {
 
   addDynamic(){
     final index = dynamicList.length;
-    print("index::"+index.toString());
+    int position = 0;
+
     dynamicList.add(new dynamicWidget(onPress: (){
       setState(() {
         dynamicList.removeAt(index);
+        print("position removed:"+position.toString());
       });
 
     },));
+    //position++;
+    print("position after:"+position.toString());
   }
 
 
@@ -337,3 +419,4 @@ class CategoryList {
   final String title;
   CategoryList(this.title );
 }
+

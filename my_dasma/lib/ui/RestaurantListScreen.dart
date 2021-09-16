@@ -55,7 +55,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                 SizedBox(height: 10.h,),
                 Text(txtListOfRestaurant,style: TextStyle(color: Colors.black,fontWeight: FontWeight.w900,fontSize: 20.sp),),
                 SizedBox(height: 10.h,),
-                Text("sdasdasdasd",style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal,fontSize: 14.sp),),
+                Text("Please note that all parts must be completed before your business becomes public. If you can not add all the details at once, be sure to press the Send button, or you will lose everything you have written / added. Video is optional.",style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal,fontSize: 14.sp),),
                 SizedBox(height: 10.h,),
                 ListView.builder(
                   shrinkWrap: true,

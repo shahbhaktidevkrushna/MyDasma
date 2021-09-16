@@ -52,7 +52,7 @@ class _SingerAudioSelectionState extends State<SingerAudioSelection> {
           appBar: CommonAppBar(
             appBar: AppBar(),
             AppBarBackground: blackDark,
-            isLeading: true,
+            isLeading: false,
             textColor: Colors.white,
           ),
 
