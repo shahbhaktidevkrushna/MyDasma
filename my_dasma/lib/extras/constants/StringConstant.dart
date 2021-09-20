@@ -146,7 +146,7 @@ const txtSave = "Save";
 
 const txtContent = "CONTENT";
 const txtBusinessHistory = "Business History";
-
+const txtBusinessCategory = "Business Category";
 const txtHistory = "History";
 const txtPriceSymbol = "Price €";
 const txtNote = "Note:In the case of price you have two options:\n1.If you want your price to appear on your MyDasma profile, then enter it (eg if your price is 2000 euros, enter 2000).\n2. If you do not want your price to appear on your MyDasma profile, then do not post it, leave the space blank.";

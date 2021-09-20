@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/parser.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
+import 'package:my_dasma/extras/commonWidgets/CommonBusinessButton.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonEditText.dart';
 import 'package:my_dasma/extras/commonWidgets/btnWidget.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
@@ -14,53 +15,42 @@ import '../City.dart';
 import '../Country.dart';
 import '../webservice.dart';
 
-class ProfilePageEdit extends StatefulWidget {
-  const ProfilePageEdit({Key? key}) : super(key: key);
+class BusinessProfilePageEdit extends StatefulWidget {
+  const BusinessProfilePageEdit({Key? key}) : super(key: key);
 
   @override
-  _ProfilePageEditState createState() => _ProfilePageEditState();
+  _BusinessProfilePageEditState createState() => _BusinessProfilePageEditState();
 }
 
-class _ProfilePageEditState extends State<ProfilePageEdit> {
+class _BusinessProfilePageEditState extends State<BusinessProfilePageEdit> {
   DateTime selectedDate = DateTime.now();
   var dateText="Birth date";
   var selectedCountryUser = "Select your country";
   var selectedCityUser = "Select your city";
   var strNoFileChose = "No File chosen";
   var btnTextChooseFile = "Choose File";
+  String dropdownvalue = 'The name of the party';
+  List<String> items =  ['The name of the party','Wedding','Konagjeqi','Engagement','Synetia','Birthday','Semi-ripe','Matura Exam','Concerts'];
   List<Data> countryList =[];
   List<DataCity> cityList =[];
   List<String> countryListData =[];
   List<String> cityListData =[];
 
-  TextEditingController? _nameControllerU = TextEditingController();
-  TextEditingController? _surnameControllerU = TextEditingController();
-  TextEditingController? _birthdayControllerU = TextEditingController();
-  TextEditingController? _emailControllerU = TextEditingController();
-  TextEditingController? _phoneNumControllerU = TextEditingController();
-  TextEditingController? _sCountryControllerU = TextEditingController();
-  TextEditingController? _sCityControllerU = TextEditingController();
-  TextEditingController? _numOfHouseControllerU = TextEditingController();
-  TextEditingController? _streetControllerU = TextEditingController();
-  TextEditingController? _neighborhoodControllerU = TextEditingController();
-  TextEditingController? _postCodeControllerU = TextEditingController();
-  TextEditingController? _passControllerU = TextEditingController();
-  TextEditingController? _confPassControllerU = TextEditingController();
+  TextEditingController? _bNameControllerB = TextEditingController();
+  TextEditingController? _typeBControllerB = TextEditingController();
+  TextEditingController? _nameControllerB = TextEditingController();
+  TextEditingController? _surNameControllerB = TextEditingController();
+  TextEditingController? _emailControllerB = TextEditingController();
+  TextEditingController? _phoneNumControllerB = TextEditingController();
+  TextEditingController? _passwordControllerB = TextEditingController();
+  TextEditingController? _confPassControllerB = TextEditingController();
+  TextEditingController? _sCountryControllerB = TextEditingController();
+  TextEditingController? _sCityControllerB = TextEditingController();
+  TextEditingController? _numHouseControllerB = TextEditingController();
+  TextEditingController? _streetControllerB = TextEditingController();
+  TextEditingController? _neighborhoodControllerB = TextEditingController();
+  TextEditingController? _postCodeControllerB = TextEditingController();
 
-
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
-
-    if (picked != null && picked != selectedDate)
-      setState(() {
-        selectedDate = picked;
-        dateText = "${selectedDate.toLocal()}".split(' ')[0];
-      });
-  }
 
   @override
   void initState() {
@@ -87,14 +77,14 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
           textColor: Colors.white,
           isDrawer: true,
           isLeading: true,
-          AppBarBackground: colorPurple,
+          AppBarBackground: blackDark,
         ),
 
         body:
         SingleChildScrollView(
           child: Padding(
             padding:  EdgeInsets.only(top: 10.h,left: 5.h,right: 5.h),
-            child: userTab(),
+            child: businessTab(),
           ),
         )
     );
@@ -102,7 +92,7 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
 
   }
 
-  Widget userTab()
+  Widget businessTab()
   {
     var picked;
 
@@ -119,6 +109,54 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Text(txtBusinessName,style: TextStyle(fontSize: 14.sp,color: Colors.black,fontWeight: FontWeight.w500),),
+                ),
+
+                CommonEditTextWidget(
+                  context: context,
+                  lableText:txtBusinessName ,
+                  txtController: _bNameControllerB,
+                  textInputType: TextInputType.text,
+                  textInputAction: TextInputAction.next,),
+
+                SizedBox(height:8.h),
+
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Text(txtBusinessCategory,style: TextStyle(fontSize: 14.sp,color: Colors.black,fontWeight: FontWeight.w500),),
+                ),
+
+                Container(
+                  width: MediaQuery.of(context).size.width / 1.2,
+                  height: 38.h,
+                  padding: EdgeInsets.only(left: 16.w, right: 16.w),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(50.r)),
+                      color: Colors.white,
+                      boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5.r)]),
+                  child:DropdownButtonHideUnderline(
+                    child: DropdownButton<String>(
+                        isDense: true,
+                        isExpanded: true,
+                        items:items.map((String items) {
+                          return DropdownMenuItem(
+                              value: items,
+                              child: Text(items,style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.normal),)
+                          );
+                        }
+                        ).toList(),
+                        onChanged: ( value){
+                          setState(() {
+                            dropdownvalue = value!;
+                          });
+                        },value:dropdownvalue
+                    ),
+                  ),) ,
+
+
+                SizedBox(height:8.h),
 
                 Padding(
                   padding: const EdgeInsets.all(6.0),
@@ -128,7 +166,7 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
                 CommonEditTextWidget(
                   context: context,
                   lableText:txtName ,
-                  txtController: _nameControllerU,
+                  txtController: _nameControllerB,
                   textInputType: TextInputType.text,
                   textInputAction: TextInputAction.next,),
 
@@ -142,25 +180,9 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
                 CommonEditTextWidget(
                   context: context,
                   lableText:txtSurname ,
-                  txtController: _surnameControllerU,
+                  txtController: _surNameControllerB,
                   textInputType: TextInputType.text,
                   textInputAction: TextInputAction.next,),
-
-                SizedBox(height:8.h),
-
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: Text(txtBirthDate,style: TextStyle(fontSize: 14.sp,color: Colors.black,fontWeight: FontWeight.w500),),
-                ),
-
-                InkWell(
-                    onTap: (){
-                      _selectDate(context);
-                    },
-                    child:
-                    getTextWidgetDate()
-                    ),
-
 
                 SizedBox(height:8.h),
 
@@ -172,8 +194,24 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
                 CommonEditTextWidget(
                   context: context,
                   lableText:txtEmail ,
-                  txtController: _emailControllerU,
+                  txtController: _emailControllerB,
                   textInputType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,),
+
+                SizedBox(height:8.h),
+
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Text(txtPhnNumber,style: TextStyle(fontSize: 14.sp,color: Colors.black,fontWeight: FontWeight.w500),),
+                ),
+
+
+                CommonEditTextWidget(
+                  context: context,
+                  lableText:txtPhnNumber ,
+                  txtController: _phoneNumControllerB,
+                  textInputType: TextInputType.text,
+                  obsecureText: true,
                   textInputAction: TextInputAction.next,),
 
                 SizedBox(height:8.h),
@@ -262,7 +300,7 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
                 CommonEditTextWidget(
                   context: context,
                   lableText:txtHouseNumber ,
-                  txtController: _numOfHouseControllerU,
+                  txtController: _numHouseControllerB,
                   textInputType: TextInputType.text,
                   textInputAction: TextInputAction.next,),
 
@@ -276,7 +314,7 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
                 CommonEditTextWidget(
                   context: context,
                   lableText:txtStreet ,
-                  txtController: _streetControllerU,
+                  txtController: _streetControllerB,
                   textInputType: TextInputType.text,
                   textInputAction: TextInputAction.next,),
 
@@ -290,7 +328,7 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
                 CommonEditTextWidget(
                   context: context,
                   lableText:txtNeighbourhood ,
-                  txtController: _neighborhoodControllerU,
+                  txtController: _neighborhoodControllerB,
                   textInputType: TextInputType.text,
                   textInputAction: TextInputAction.next,),
 
@@ -304,27 +342,11 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
                 CommonEditTextWidget(
                   context: context,
                   lableText:txtPostCode ,
-                  txtController: _postCodeControllerU,
+                  txtController: _postCodeControllerB,
                   textInputType: TextInputType.number,
                   textInputAction: TextInputAction.next,),
 
                 SizedBox(height:8.h),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: Text(txtPhnNumber,style: TextStyle(fontSize: 14.sp,color: Colors.black,fontWeight: FontWeight.w500),),
-                ),
-
-
-                CommonEditTextWidget(
-                  context: context,
-                  lableText:txtPhnNumber ,
-                  txtController: _phoneNumControllerU,
-                  textInputType: TextInputType.text,
-                  obsecureText: true,
-                  textInputAction: TextInputAction.next,),
-
-                SizedBox(height:8.h),
-
 
                 Padding(
                   padding: const EdgeInsets.all(6.0),
@@ -366,9 +388,14 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
             Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
               child: Center(
-                child: BtnWidget((){
-                  validationForUserTab();
-                }, btnText: txtSave),
+                child: CommonElevatedButton(
+                  onTap: (){
+                    validationForBusinessTab();
+                  },
+                  context: context,
+                  lableText: txtSave,
+                  ButtonBackground: Colors.black,
+                ),
               ),
             ),
           ],
@@ -384,7 +411,7 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
             width: MediaQuery.of(context).size.width/1.2,
             height: 38.h,
             padding: EdgeInsets.only(
-                left: 16.w, right: 16.w,),
+              left: 16.w, right: 16.w,),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(50.r)),
                 color: Colors.white,
@@ -392,29 +419,10 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(strText,style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14.sp),))
-                ),
-      ],
-    );
-  }
-  Widget getTextWidgetDate(){
-    return Column(
-      children: [
-        Container(
-            width: MediaQuery.of(context).size.width/1.2,
-            height: 38.h,
-            padding: EdgeInsets.only(
-                left: 16.w, right: 16.w,
-            ),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(50.r)),
-                color: Colors.white,
-                boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5.r)]),
-            child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(dateText,style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14.sp),))
         ),
       ],
     );
+
   }
   Future getProgress()
   {return
@@ -479,27 +487,27 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-  void validationForUserTab(){
+  void validationForBusinessTab(){
 
-    if (_nameControllerU!.text.isEmpty){
+    if (_nameControllerB!.text.isEmpty){
       showSnackBar(context, "Name is empty");
       return;
-    } else if (_surnameControllerU!.text.isEmpty){
+    } else if (_surNameControllerB!.text.isEmpty){
       showSnackBar(context, "Surname is empty");
       return;
     } else if (dateText == "Birth date"){
       showSnackBar(context, "please select your birthdate");
       return;
-    } else if (_emailControllerU!.text.isEmpty){
+    } else if (_emailControllerB!.text.isEmpty){
       showSnackBar(context, "Email is empty");
       return;
-    } else if (!isEmail(_emailControllerU!.text)){
+    } else if (!isEmail(_emailControllerB!.text)){
       showSnackBar(context, "Email is not valid");
       return;
-    } else if (_phoneNumControllerU!.text.isEmpty){
+    } else if (_phoneNumControllerB!.text.isEmpty){
       showSnackBar(context, "Phone number is empty");
       return;
-    } else if (!isPhoneNoValid(_phoneNumControllerU!.text)){
+    } else if (!isPhoneNoValid(_phoneNumControllerB!.text)){
       showSnackBar(context, "Phone number is not valid");
       return;
     } else if (selectedCountryUser == "Select your country"){
@@ -508,26 +516,26 @@ class _ProfilePageEditState extends State<ProfilePageEdit> {
     } else if (selectedCityUser == "Select your city"){
       showSnackBar(context, "please select your city");
       return;
-    } else if (_numOfHouseControllerU!.text.isEmpty){
+    } else if (_numHouseControllerB!.text.isEmpty){
       showSnackBar(context, "Number of house is empty");
       return;
-    } else if (_streetControllerU!.text.isEmpty){
+    } else if (_streetControllerB!.text.isEmpty){
       showSnackBar(context, "Street is empty");
       return;
-    } else if (_neighborhoodControllerU!.text.isEmpty){
+    } else if (_neighborhoodControllerB!.text.isEmpty){
       showSnackBar(context, "Neighborhood is empty");
       return;
-    } else if (_postCodeControllerU!.text.isEmpty){
+    } else if (_postCodeControllerB!.text.isEmpty){
       showSnackBar(context, "Post code is empty");
       return;
-    } else if (_passControllerU!.text.isEmpty){
+    } else if (_passwordControllerB!.text.isEmpty){
       showSnackBar(context, "Password is empty");
       return;
 
-    } else if (_confPassControllerU!.text.isEmpty){
+    } else if (_confPassControllerB!.text.isEmpty){
       showSnackBar(context, "confirm password is empty");
       return;
-    } else if (_passControllerU!.text != _confPassControllerU!.text){
+    } else if (_passwordControllerB!.text != _confPassControllerB!.text){
       showSnackBar(context, "password is not same");
       return;
     }

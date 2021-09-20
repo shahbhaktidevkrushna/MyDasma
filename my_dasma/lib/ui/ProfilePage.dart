@@ -160,7 +160,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
                   Padding(
                     padding: const EdgeInsets.all(6.0),
-                    child: Text(txtHouseNumber,style: TextStyle(fontSize: 14.sp,color: Colors.black,fontWeight: FontWeight.w500),),
+                    child: Text(txtCountry,style: TextStyle(fontSize: 14.sp,color: Colors.black,fontWeight: FontWeight.w500),),
                   ),
 
                   CommonEditTextWidget(
@@ -249,7 +249,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(height:8.h),
                   Padding(
                     padding: const EdgeInsets.all(6.0),
-                    child: Text(txtPassword,style: TextStyle(fontSize: 14.sp,color: Colors.black,fontWeight: FontWeight.w500),),
+                    child: Text(txtPhnNumber,style: TextStyle(fontSize: 14.sp,color: Colors.black,fontWeight: FontWeight.w500),),
                   ),
 
 

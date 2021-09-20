@@ -14,20 +14,15 @@ class City{
       });
     }
   }
-
-
 }
+
 class DataCity {
   String id="";
   String title="";
-
   DataCity({required this.id,required this.title});
-
   DataCity.fromJson(Map<String, dynamic> json) {
     id= json['id'];
     title= json['title'];
   }
-
-
 }
 
