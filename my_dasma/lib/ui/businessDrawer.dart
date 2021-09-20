@@ -9,6 +9,8 @@ import 'package:my_dasma/ui/ProfileScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'SigninScreen.dart';
+
 
 class BusinessDrawer extends StatefulWidget {
   final List<MenuItem> mainMenu;
@@ -119,7 +121,7 @@ class _BusinessDrawerState extends State<BusinessDrawer> {
                 padding:  EdgeInsets.only(left: 24.h, right: 24.h),
                 child: OutlinedButton(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:  EdgeInsets.all(8.0),
                     child: Text(
                       tr("logout"),
                       style: TextStyle(fontSize: 18,color: Colors.white),
@@ -130,7 +132,10 @@ class _BusinessDrawerState extends State<BusinessDrawer> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
                     textStyle: TextStyle(color: Colors.white),
                   ),
-                  onPressed: () => print("Pressed !"),
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
                 ),
               ),
               Spacer(),

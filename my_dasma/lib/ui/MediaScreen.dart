@@ -2,8 +2,10 @@ import 'dart:io';
 import 'dart:math' show pi;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
+import 'package:my_dasma/extras/constants/SharePrefConstant.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
@@ -23,7 +25,7 @@ class MediaScreen extends StatefulWidget {
 class _MediaScreenState extends State<MediaScreen> {
 
   late final fileName;
-
+  final storage = GetStorage();
   //late String _tempDir;
   String? _tempDir = "";
   late String filePath;
@@ -32,6 +34,9 @@ class _MediaScreenState extends State<MediaScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+
+
 
     //getTemporaryDirectory().then((d) => _tempDir = d.path);
    // _tempDir = getTempDir as String?;
@@ -103,7 +108,7 @@ class _MediaScreenState extends State<MediaScreen> {
       appBar: CommonAppBar(
         appBar: AppBar(),
         title: txtMedia,
-        AppBarBackground:colorPurple,
+        AppBarBackground:storage.read(loginType)=="User"?colorPurple:Colors.black,
         isLeading: false,
         // isDrawer: true,
         textColor: Colors.white,
@@ -205,7 +210,7 @@ class _MediaScreenState extends State<MediaScreen> {
                                 bottom: 0, right: 0,
                                 top: 0, left: 0,
                                 //give the values according to your requirement
-                                child: Icon(Icons.play_arrow_rounded, size: 60.r, color: Colors.deepPurple,),
+                                child: Icon(Icons.play_arrow_rounded, size: 60.r, color: storage.read(loginType)=="User"?colorPurple:Colors.black,),
                                /* child: Image.asset('assets/play_circle_img2.png',
                                 width: 60.w, height: 60.h),*/
                               ),

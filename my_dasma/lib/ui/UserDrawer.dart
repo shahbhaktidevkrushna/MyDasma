@@ -8,6 +8,7 @@ import 'package:my_dasma/ui/ProfileScreen.dart';
 //import 'package:my_dasma/pages/UserDashboard.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'SigninScreen.dart';
 import 'UserDashboard.dart';
 
 class UserDrawer extends StatefulWidget {
@@ -130,7 +131,11 @@ class _UserDrawerState extends State<UserDrawer> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
                     textStyle: TextStyle(color: Colors.white),
                   ),
-                  onPressed: () => print("Pressed !"),
+                  onPressed: () {
+
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
                 ),
               ),
               Spacer(),

@@ -83,6 +83,12 @@ flutter:
   assets:
     - assets/
     - assets/langs/
+
+#  fonts:0
+#    - family: Raleway
+#      fonts:
+#        - asset: fonts/mo_me.ttf
+#        - asset: fonts/mo_re.ttf
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

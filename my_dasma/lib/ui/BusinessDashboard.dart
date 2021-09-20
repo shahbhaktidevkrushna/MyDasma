@@ -130,11 +130,11 @@ class _MainScreenState extends State<MainScreen> {
 
     else if(index==1)
     {
-      return MediaSelection();
+      return MediaScreen();
     }
     else if(index==2)
     {
-      return AddMusicScreen();
+      return BlogScreen();
     }
     else if(index==3)
     {

@@ -7,10 +7,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_dasma/extras/commonWidgets/CommonAppbar.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/extras/constants/AppImages.dart';
+import 'package:my_dasma/extras/constants/SharePrefConstant.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
@@ -27,7 +29,7 @@ class BlogScreen extends StatefulWidget {
 
 class _BlogScreenState extends State<BlogScreen> {
 
-
+  final storage = GetStorage();
 
 
 
@@ -41,7 +43,7 @@ class _BlogScreenState extends State<BlogScreen> {
         appBar: CommonAppBar(
           appBar: AppBar(),
           title: txtBlog,
-          AppBarBackground:colorPurple,
+          AppBarBackground:storage.read(loginType)=="User"?colorPurple:Colors.black,
           isLeading: false,
           // isDrawer: true,
           textColor: Colors.white,
