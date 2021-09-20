@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
-import 'package:my_dasma/ui/ProfileScreen.dart';
+import 'package:my_dasma/ui/ProfilePage.dart';
 //import 'package:my_dasma/pages/UserDashboard.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

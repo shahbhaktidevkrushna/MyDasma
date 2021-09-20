@@ -4,8 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_dasma/ui/BusinessDashboard.dart';
-import 'package:my_dasma/ui/ProfileScreen.dart';
-
+import 'package:my_dasma/ui/BusinessProfilePage.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -69,7 +68,7 @@ class _BusinessDrawerState extends State<BusinessDrawer> {
                 onTap: ()
                 {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ProfilePage()));
+                      builder: (context) => BusinessProfilePage()));
                 },
                 child: Padding(
                   padding:  EdgeInsets.only(bottom: 24.h, left: 24.h, right: 24.h),
