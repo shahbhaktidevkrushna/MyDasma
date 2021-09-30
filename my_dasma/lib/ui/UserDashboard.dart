@@ -12,6 +12,7 @@ import 'package:my_dasma/ui/MediaPlayScreen.dart';
 import 'package:my_dasma/ui/MediaScreen.dart';
 import 'package:my_dasma/ui/PrivacyPolicyScreen.dart';
 import 'package:my_dasma/ui/HomeScreen.dart';
+import 'package:my_dasma/ui/ProfilePage.dart';
 import 'package:provider/provider.dart';
 import 'UserDrawer.dart';
 
@@ -138,6 +139,10 @@ class _MainScreenState extends State<MainScreen> {
     else if(index==5)
     {
       return PrivacyPolicy();
+    }
+    else if(index==6)
+    {
+      return ProfilePage();
     }
     else {
       return HomeScreen();

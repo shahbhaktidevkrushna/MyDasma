@@ -40,11 +40,14 @@ class _AddRestaurantBasicDetailSceeenState extends State<AddRestaurantBasicDetai
         backgroundColor: Colors.white,
         appBar: CommonAppBar(
           appBar: AppBar(),
-          title: "Add Restaurants",
+          title:"Manage Details",
+          // "Add Restaurants",
           AppBarBackground:Colors.black,
           isLeading: true,
           // isDrawer: true,
           textColor: Colors.white,
+
+
 
         ),
           body: Container(

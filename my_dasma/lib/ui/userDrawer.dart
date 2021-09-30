@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:my_dasma/extras/constants/AppColor.dart';
 import 'package:my_dasma/ui/ProfilePage.dart';
 //import 'package:my_dasma/pages/UserDashboard.dart';
@@ -67,8 +68,8 @@ class _UserDrawerState extends State<UserDrawer> {
               GestureDetector(
                 onTap: ()
                 {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ProfilePage()));
+                  Provider.of<MenuProvider>(context, listen: false).updateCurrentPage(6);
+                  ZoomDrawer.of(context)!.toggle();
                 },
                 child: Padding(
                   padding:  EdgeInsets.only(bottom: 24.h, left: 24.h, right: 24.h),

@@ -34,6 +34,7 @@ class _BusinessProfilePageState extends State<BusinessProfilePage> {
   TextEditingController? _streetControllerB = TextEditingController();
   TextEditingController? _neighborhoodControllerB = TextEditingController();
   TextEditingController? _postCodeControllerB = TextEditingController();
+  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -79,6 +80,38 @@ class _BusinessProfilePageState extends State<BusinessProfilePage> {
             child: BusinessTab(),
           ),
         )
+    return SafeArea(
+      child: Scaffold(
+
+          appBar:CommonAppBar(
+            appBar: AppBar(),
+            scaffoldKey: scaffoldKey,
+            context: context,
+            title: txtProfile,
+            action: [Padding(
+              padding: const EdgeInsets.all(8.0),
+              child:
+              IconButton(
+                icon: Icon(Icons.edit,color: Colors.white,size: 22,),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => BusinessProfilePageEdit()));
+                },
+              ),
+            )],
+            textColor: Colors.white,
+            isLeading: false,
+            AppBarBackground: blackDark,
+          ),
+
+          body:
+          SingleChildScrollView(
+            child: Padding(
+              padding:  EdgeInsets.only(top: 10.h,left: 5.h,right: 5.h),
+              child: BusinessTab(),
+            ),
+          )
+      ),
     );
   }
 

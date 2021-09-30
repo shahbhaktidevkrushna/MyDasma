@@ -33,7 +33,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
         context.select<MenuProvider, int>((provider) => provider.currentPage);
     return SafeArea(
       child: Scaffold(
-         backgroundColor: Colors.white                      ,
+        backgroundColor: Colors.white,
         appBar: CommonAppBar(
           appBar: AppBar(),
           title: txtAddManageRestaurant,
