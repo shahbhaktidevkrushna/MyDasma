@@ -68,6 +68,7 @@ class _BusinessProfilePageState extends State<BusinessProfilePage> {
           )],
           textColor: Colors.white,
           isLeading: false,
+          isDrawer: true,
           AppBarBackground: blackDark,
         ),
 

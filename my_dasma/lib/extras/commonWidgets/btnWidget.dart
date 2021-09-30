@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BtnWidget extends StatelessWidget {
 
-  final String btnText;
-  final Function()? onTap;
+   String btnText;
+   Function()? onTap;
 
-  BtnWidget(this.onTap, {Key? key, required this.btnText}) : super(key: key);
+  BtnWidget(this.onTap, {Key? key, required this.btnText,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

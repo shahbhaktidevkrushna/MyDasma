@@ -44,15 +44,11 @@ class Constant
 
   // Password validation
   bool validatePassword(String value) {
-    /*Pattern pattern =
-        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';*/
-
     String pattern =
         r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{5,}$';
     RegExp regex = new RegExp(pattern);
-    // print(value);
 
-    return regex.hasMatch(pattern);
+    return regex.hasMatch(value);
   }
 
   // Phone number validation

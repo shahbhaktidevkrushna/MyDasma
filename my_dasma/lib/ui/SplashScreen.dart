@@ -30,25 +30,25 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 3), 
         () {
 
-      if(storage.read(isLogin) != null && storage.read(isLogin)) {
-        if(storage.read(loginType)=="User")
-          {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => UserDashboardScreen()));
-          }
-        else{
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => BusinessDashboard()));
-        }
-
-      }
-
-
-      else{
+      // if(storage.read(isLogin) != null && storage.read(isLogin)) {
+      //   if(storage.read(loginType)=="User")
+      //     {
+      //       Navigator.pushReplacement(context,
+      //           MaterialPageRoute(builder: (context) => UserDashboardScreen()));
+      //     }
+      //   else{
+      //     Navigator.pushReplacement(context,
+      //         MaterialPageRoute(builder: (context) => BusinessDashboard()));
+      //   }
+      //
+      // }
+      //
+      //
+      // else{
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => LoginPage()));
 
-      }
+      // }
   });
   }
 

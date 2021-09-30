@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CommonEditTextWidget extends StatelessWidget
@@ -7,7 +8,7 @@ class CommonEditTextWidget extends StatelessWidget
    BuildContext context;
    TextEditingController? txtController;
   String lableText;
-   // FocusNode focuNode;
+   FocusNode? focuNode;
   TextInputType textInputType;
   TextInputAction? textInputAction;
   ValueChanged<String>? onChanged;
@@ -17,6 +18,7 @@ class CommonEditTextWidget extends StatelessWidget
   CommonEditTextWidget({
     required this.context,
     required this.txtController,
+    this.focuNode,
     required this.lableText,
     // required this.focuNode,
     required this.textInputType,
@@ -39,7 +41,7 @@ class CommonEditTextWidget extends StatelessWidget
           boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5.r)]),
       child: TextFormField(
         controller: txtController,
-        // focusNode: focuNode,
+         focusNode: focuNode,
         onChanged: onChanged,
         obscureText: obsecureText,
         enabled: enabled,

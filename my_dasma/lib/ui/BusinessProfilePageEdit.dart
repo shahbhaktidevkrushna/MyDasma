@@ -245,7 +245,6 @@ class _BusinessProfilePageEditState extends State<BusinessProfilePageEdit> {
                             }
 
                           });
-
                         },
                       );
 

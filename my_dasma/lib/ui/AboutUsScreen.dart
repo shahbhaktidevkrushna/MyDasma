@@ -32,7 +32,7 @@ class AboutUsScreen extends StatelessWidget {
           title: txtAboutUs,
           AppBarBackground:storage.read(loginType)=="User"?colorPurple:Colors.black,
           isLeading: false,
-          // isDrawer: true,
+          //isDrawer: true,
           textColor: Colors.white,
 
         ),
