@@ -3,8 +3,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:my_dasma/ui/BlogScreen.dart';
 import 'package:my_dasma/ui/BusinessDashboard.dart';
 import 'package:my_dasma/ui/ProfileScreen.dart';
+import 'package:my_dasma/ui/SigninScreen.dart';
 
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -66,8 +69,12 @@ class _BusinessDrawerState extends State<BusinessDrawer> {
               GestureDetector(
                 onTap: ()
                 {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ProfilePage()));
+
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //     builder: (context) => BusinessProfilePage()));
+                  Provider.of<BusinessMenuProvider>(context, listen: false).updateCurrentPage(6);
+                  ZoomDrawer.of(context)!.toggle();
+
                 },
                 child: Padding(
                   padding:  EdgeInsets.only(bottom: 24.h, left: 24.h, right: 24.h),
@@ -119,7 +126,7 @@ class _BusinessDrawerState extends State<BusinessDrawer> {
                 padding:  EdgeInsets.only(left: 24.h, right: 24.h),
                 child: OutlinedButton(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:  EdgeInsets.all(8.0),
                     child: Text(
                       tr("logout"),
                       style: TextStyle(fontSize: 18,color: Colors.white),
@@ -130,7 +137,10 @@ class _BusinessDrawerState extends State<BusinessDrawer> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
                     textStyle: TextStyle(color: Colors.white),
                   ),
-                  onPressed: () => print("Pressed !"),
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
                 ),
               ),
               Spacer(),

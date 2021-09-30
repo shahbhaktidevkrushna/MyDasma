@@ -4,21 +4,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:my_dasma/extras/constants/Constant.dart';
 import 'package:my_dasma/extras/constants/StringConstant.dart';
 import 'package:my_dasma/ui/AboutUsScreen.dart';
 import 'package:my_dasma/ui/BlogScreen.dart';
 import 'package:my_dasma/ui/BusinessHomeScreen.dart';
-import 'package:my_dasma/ui/RestaurantListScreen.dart';
+import 'package:my_dasma/ui/BusinessHomeScreenOtherCategory.dart';
+import 'package:my_dasma/ui/BusinessProfilePage.dart';
 import 'package:my_dasma/ui/ContactUsScreen.dart';
-import 'package:my_dasma/ui/MediaPlayScreen.dart';
 import 'package:my_dasma/ui/MediaScreen.dart';
-import 'package:my_dasma/ui/MediaSelection.dart';
 import 'package:my_dasma/ui/PrivacyPolicyScreen.dart';
-import 'package:my_dasma/ui/HomeScreen.dart';
 import 'package:my_dasma/ui/BusinessDrawer.dart';
+import 'package:my_dasma/ui/SingerContentScreen.dart';
+import 'package:my_dasma/ui/listExample.dart';
 import 'package:provider/provider.dart';
-
 
 
 
@@ -57,7 +55,7 @@ class _BusinessDashboardState extends State<BusinessDashboard> {
           callback: _updatePage,
           current: _currentPage,
         ),
-         mainScreen: MainScreen(index: getPage(),),
+        mainScreen: MainScreen(index: getPage(),),
         // mainScreen: MainScreen(),
         borderRadius: 24.0,
 //      showShadow: true,
@@ -65,7 +63,7 @@ class _BusinessDashboardState extends State<BusinessDashboard> {
         mainScreenScale: .1,
         slideWidth: MediaQuery.of(context).size.width * (isRtl ? .55 : 0.65),
         isRtl: isRtl,
-        clipMainScreen: false,
+        clipMainScreen: true,
         // openCurve: Curves.fastOutSlowIn,
         // closeCurve: Curves.bounceIn,
       ),
@@ -99,7 +97,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-      print("current index::"+Provider.of<BusinessMenuProvider>(context, listen: false)._currentPage.toString());
+    print("current index::"+Provider.of<BusinessMenuProvider>(context, listen: false)._currentPage.toString());
     final rtl = context.locale.languageCode == "ar";
     return ValueListenableBuilder<DrawerState>(
       valueListenable: ZoomDrawer.of(context)!.stateNotifier!,
@@ -124,13 +122,15 @@ class _MainScreenState extends State<MainScreen> {
   Widget setScreen(int? index)
   {
     if(index==0) {
+     // return ListViewHandelItem();
+     return BusinessHomeScreenOtherCategory();
       return BusinessHomeScreen();
       // return MediaVideoListPage();
     }
 
     else if(index==1)
     {
-      return MediaSelection();
+      return MediaScreen();
     }
     else if(index==2)
     {
@@ -147,6 +147,10 @@ class _MainScreenState extends State<MainScreen> {
     else if(index==5)
     {
       return PrivacyPolicy();
+    }
+    else if(index==6)
+    {
+      return BusinessProfilePage();
     }
     else {
       return BusinessHomeScreen();

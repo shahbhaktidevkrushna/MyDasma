@@ -17,18 +17,17 @@ import 'RestaurantListScreen.dart';
 import 'UserDashboard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class BusinessHomeScreen extends StatefulWidget {
+class BusinessHomeScreenOtherCategory extends StatefulWidget {
   @override
-  _BusinessHomeScreenState createState() => _BusinessHomeScreenState();
+  _BusinessHomeScreenOtherCategoryState createState() => _BusinessHomeScreenOtherCategoryState();
 }
 
-class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
+class _BusinessHomeScreenOtherCategoryState extends State<BusinessHomeScreenOtherCategory> {
   bool status = false;
   final List<DashboardData> dashboardList = <DashboardData>[
-    DashboardData(bed_icon, "MANAGE THE RESTAURANT",
-        "From here you can add and manage the Restaurant"),
-    DashboardData(menu_icon, "MANAGE MENUS OFFERED BY RESTAURANT",
-        "From here you can manage the Restaurant Menus"),
+    DashboardData(bed_icon, "MANAGE THE DETAIL",
+        "You can manage your details from here"),
+
   ];
   final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
@@ -58,22 +57,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
             },
           ),
         ),
-        // bottomNavigationBar: Padding(
-        //   padding:
-        //       EdgeInsets.only(right: 25.w, left: 25.w, bottom: 10.h, top: 10.h),
-        //   child: Container(
-        //       height: 30.h,
-        //       // width: MediaQuery.of(context).size.width/1.2,
-        //       child: CommonElevatedButton(
-        //         context: context,
-        //         lableText: "Add Restaurnat",
-        //         ButtonBackground: Colors.black,
-        //         onTap: () {
-        //           // Navigator.of(context).push(MaterialPageRoute(
-        //           //     builder: (context) => AddRestaurantScreen1()));
-        //         },
-        //       )),
-        // ),
+
       ),
     );
   }
@@ -83,10 +67,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> {
       onTap: () {
         if (index == 0) {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => RestaurantListScreen()));
-        } else if (index == 1) {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => RestaurantMenuScreen()));
+              MaterialPageRoute(builder: (context) => AddRestaurantBasicDetailSceeen()));
         }
       },
       child: Padding(

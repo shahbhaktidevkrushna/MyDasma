@@ -19,12 +19,14 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final AppBar? appBar;
   final Color? AppBarBackground;
   final Color? textColor;
+  final BuildContext? context;
   final GlobalKey<ScaffoldState>? scaffoldKey;
   final angle =  0.0;
 
 
   CommonAppBar(
       {this.title,
+        this.context,
         this.subtitle,
         this.onPress,
         @required this.appBar,
@@ -38,6 +40,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      key: scaffoldKey,
       centerTitle: false,
       brightness: Brightness.light,
       systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.orange),
