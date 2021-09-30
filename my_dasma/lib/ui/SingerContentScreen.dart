@@ -33,17 +33,6 @@ class SingerContentScreen extends StatefulWidget {
 }
 
 class _SingerContentScreenState extends State<SingerContentScreen> {
-
-
-  @override
-  _SingerContentScreenState createState() {
-    pageState = _SingerContentScreenState();
-    return pageState;
-  }
-
-}
-
-class _SingerContentScreenState extends State<SingerContentScreen> {
   var biographySController = TextEditingController();
   var addressController = TextEditingController();
   AudioManager? audioManager=null;
