@@ -21,4 +21,5 @@ const menu_icon = "assets/rest_menu.png";
 const no_image = "assets/no_image.gif";
 const round_button = "assets/round_add_button.png";
 const minus_icon = "assets/minus.png";
+const manage_details = "assets/manage_detail.png";
 

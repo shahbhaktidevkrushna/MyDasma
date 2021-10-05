@@ -81,7 +81,7 @@ class _MediaSelectionState extends State<MediaSelection> {
                     size: 20.0.r,
                   ),
                   onPressed: () async {
-                    var source = ImageSource.gallery;
+                    // var source = ImageSource.gallery;
                     images = await imagePicker.pickMultiImage();
 
                     setState(() {

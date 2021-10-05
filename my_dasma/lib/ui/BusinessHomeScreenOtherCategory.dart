@@ -25,7 +25,7 @@ class BusinessHomeScreenOtherCategory extends StatefulWidget {
 class _BusinessHomeScreenOtherCategoryState extends State<BusinessHomeScreenOtherCategory> {
   bool status = false;
   final List<DashboardData> dashboardList = <DashboardData>[
-    DashboardData(bed_icon, "MANAGE THE DETAIL",
+    DashboardData(manage_details, "MANAGE THE DETAIL",
         "You can manage your details from here"),
 
   ];

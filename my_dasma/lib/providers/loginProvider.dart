@@ -55,10 +55,11 @@ class LoginProvider extends ChangeNotifier with Constant{
       if (strPassword.trim().isEmpty) {
         isPasswordErr = true;
         txtPassword = '';
-      } else if(!validatePassword(strPassword)){
-        isPasswordErr = true;
-        txtPassword = strPassword;
       }
+      // else if(!validatePassword(strPassword)){
+      //   isPasswordErr = true;
+      //   txtPassword = strPassword;
+      // }
       else {
         isPasswordErr = false;
         txtPassword = strPassword;
