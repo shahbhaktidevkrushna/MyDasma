@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_dasma/extras/commonWidgets/btnWidget.dart';
-import 'package:permission_handler/permission_handler.dart';
+
 import 'package:select_dialog/select_dialog.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
@@ -96,7 +96,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     });
     fetchCountry();
     //fetchCity();
-    getReadFilePermission();
+    // getReadFilePermission();
   }
 
   Future getProgress()
@@ -598,19 +598,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     );
   }
 
-  Future<bool> getReadFilePermission() async {
-    if (await Permission.storage.request().isGranted) {
-      // Either the permission was already granted before or the user just granted it.
-      print("Read permission granted");
-      return true;
-    } else {
-      // You can request multiple permissions at once.
-      Map<Permission, PermissionStatus> statuses = await [Permission.storage].request();
-      // Map<Permission, PermissionStatus> statuses = await PermissionHandler().requestPermissions([PermissionGroup.storage]);
-      print(statuses[Permission.storage]);
-      return false;
-    }
-  }
+  // Future<bool> getReadFilePermission() async {
+  //   if (await Permission.storage.request().isGranted) {
+  //     // Either the permission was already granted before or the user just granted it.
+  //     print("Read permission granted");
+  //     return true;
+  //   } else {
+  //     // You can request multiple permissions at once.
+  //     Map<Permission, PermissionStatus> statuses = await [Permission.storage].request();
+  //     // Map<Permission, PermissionStatus> statuses = await PermissionHandler().requestPermissions([PermissionGroup.storage]);
+  //     print(statuses[Permission.storage]);
+  //     return false;
+  //   }
+  // }
 
   showSnackBar(BuildContext context, String message) {
     // ScaffoldMessenger(key: ,).of(context).showSnackBar(SnackBar(content: Text(message)));
